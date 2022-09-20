@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day One Classwork</title>
+</head>
+    <style>
+        .text-center {
+            text-align: center; 
+        }
+        td {
+            border: 1px solid black
+        }
+    </style>
+
+        <table class="text-center">
+            <caption>
+                A vauge idea of what my week looks like
+            </caption>
+            <thead>
+            <tr>
+                <th></th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Morning</th>
+                <td style="background-color : rgb(163, 163, 195)" colspan="5" rowspan="2">Class</td>
+                <td>Sleep</td>
+                <td>Sleep</td>
+            </tr>
+            <tr>
+                <th>Afternoon</th>
+                <td>Sleep</td>
+                <td>Homework</td>
+            </tr>
+            <tr>
+                <th>Evening</th>
+                <td>Homework</td>
+                <td>Band Practice</td>
+                <td>Homework</td>
+                <td>Sleep</td>
+                <td>Work</td>
+                <td>Laundry</td>
+                <td>Sleep</td>
+            </tr>
+        </tbody>
+        </table>
+        <br>
+        <form>
+            <h2 class=".text-center">Enter Information Here</h2>
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" placeholder="yourname@email.com">
+            <label for="phonenumber">Phone Number: </label>
+            <input type="text" id="phonenumber" name="phonenumber" placeholder="(402) 123-4567">
+            <label for="firstname">First Name: </label>
+            <input type="text" id="firstname" name="firstname" placeholder="Name">
+        <br>
+        <br>
+            <label for="dateofbirth">Date of Birth: </label>
+            <input type="date" id="dateofbirth" name="dateofbirth">
+            <label for="contactmethod">Preferred Contact Method: </label>
+            <select id="contactmethod" name="contactmethod">
+                <option value="phone">Phone</option>
+                <option value="email">Email</option>
+            </select>
+        <br>
+        <br>
+            <h2 class=".text-center">Favorite Color</h2>
+            <input type="radio" id="red" name="color" value="red"checked />
+            <label for="red">Red</label>
+            <input type="radio" id="green" name="color" value="green" />
+            <label for="green">Green</label>
+            <input type="radio" id="blue" name="color" value="blue" />
+            <label for="blue">Blue</label>
+        <br>
+        <br>
+            <h2 class=".text-center">Favorite Food</h2>
+            <h3 class=".text-center">Please indicate at least one</h3>
+            <input type="checkbox" id="chinese" name="food" />
+            <label for="chinese">Chinese</label>
+            <input type="checkbox" id="thai" name="food" />
+            <label for="thai">Thai</label>
+            <input type="checkbox" id="notlisted" name="food" />
+            <label for="notlisted">Not Listed</label>
+        <br>
+        <br>
+        <br>
+            <label for="robot">Are you a robot?</label>
+            <select name="robot" id="robot">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="unsure">Unsure</option>
+            </select>
+        <br>
+        <br>
+        <br>
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>
