@@ -47,6 +47,29 @@
         color: #002400;
         font-size: 30px;
       }
+      .textformat-footer {
+        color: #4e598c;
+        font-size: 20px;
+        font-family: "Tiro Telugu", serif;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      box-left {
+        width: 15%;
+        height: 30%;
+        border: solid black;
+        position: fixed;
+        margin-top: 100px;
+        margin-left: 20%;
+      }
+      box-right {
+        width: 15%;
+        height: 30%;
+        border: solid black;
+        position: fixed;
+        margin-top: 100px;
+        margin-left: 60%;
+      }
     </style>
   </head>
   <body>
@@ -56,6 +79,24 @@
     </p>
     <br />
     <br />
+    <box-left>
+      <p class="text-align-center textformat-subheader">Left List</p>
+      <ul class="textformat-body">
+        <li>point one</li>
+        <li>point two</li>
+        <li>point three</li>
+        <li>point four</li>
+      </ul>
+    </box-left>
+    <box-right>
+      <p class="text-align-center textformat-subheader">Link List</p>
+      <ul class="textformat-body">
+        <li>link one</li>
+        <li>link two</li>
+        <li>link three</li>
+        <li>link four</li>
+      </ul>
+    </box-right>
     <p class="textformat-body">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi auctor
       fermentum luctus. Quisque iaculis sit amet lacus quis aliquam. Proin
@@ -69,5 +110,6 @@
       facilisis. Duis ultricies lacinia ligula nec euismod. Duis in turpis sed
       eros efficitur varius a et nulla.
     </p>
+    <p class="textformat-footer">footer text</p>
   </body>
 </html>
