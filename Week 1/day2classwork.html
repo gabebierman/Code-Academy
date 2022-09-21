@@ -51,14 +51,13 @@
         color: #4e598c;
         font-size: 20px;
         font-family: "Tiro Telugu", serif;
-        margin-bottom: 25px;
         text-align: center;
       }
       box-left {
         width: 15%;
         height: 30%;
-        border: solid black;
-        position: fixed;
+        /* border: solid black; */
+        position: absolute;
         margin-top: 100px;
         margin-left: 20%;
       }
@@ -66,9 +65,12 @@
         width: 15%;
         height: 30%;
         border: solid black;
-        position: fixed;
+        position: absolute;
         margin-top: 100px;
         margin-left: 60%;
+      }
+      .link-coloring {
+        color: #4e598c;
       }
     </style>
   </head>
@@ -80,19 +82,33 @@
     <br />
     <br />
     <box-left>
-      <p class="text-align-center textformat-subheader">Left List</p>
+      <p class="text-align-center textformat-subheader">Skills and Abilities</p>
       <ul class="textformat-body">
-        <li>point one</li>
-        <li>point two</li>
-        <li>point three</li>
-        <li>point four</li>
+        <li>Learning Quickly</li>
+        <li>Cat Wrangling</li>
+        <li>Python</li>
+        <li>Blast Beats</li>
       </ul>
     </box-left>
     <box-right>
-      <p class="text-align-center textformat-subheader">Link List</p>
+      <p class="text-align-center textformat-subheader">Helpful Links</p>
       <ul class="textformat-body">
-        <li>link one</li>
-        <li>link two</li>
+        <li>
+          <a
+            class="link-coloring"
+            href="https://www.linkedin.com/in/gabe-bierman-926102189/"
+            title="LinkedIn"
+            >LinkedIn</a
+          >
+        </li>
+        <li>
+          <a
+            class="link-coloring"
+            href="https://github.com/gabebierman"
+            title="GitHub"
+            >GitHub</a
+          >
+        </li>
         <li>link three</li>
         <li>link four</li>
       </ul>
@@ -110,6 +126,19 @@
       facilisis. Duis ultricies lacinia ligula nec euismod. Duis in turpis sed
       eros efficitur varius a et nulla.
     </p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <p class="textformat-footer">footer text</p>
   </body>
 </html>
