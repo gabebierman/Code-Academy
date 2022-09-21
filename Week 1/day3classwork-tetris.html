@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetris</title>
+    <style>
+      .container {
+        display: flex;
+        flex-flow: row wrap;
+        /* justify-content: space-around; */
+      }
+      .bg-black {
+        background-color: black;
+      }
+      .bg-blue {
+        background-color: blue;
+      }
+      .bg-cyan {
+        background-color: cyan;
+      }
+      .bg-green {
+        background-color: green;
+      }
+      .bg-orange {
+        background-color: orange;
+      }
+      .bg-purple {
+        background-color: purple;
+      }
+      .bg-red {
+        background-color: red;
+      }
+      .bg-yellow {
+        background-color: yellow;
+      }
+      .border-top {
+        border-top: black solid 1px;
+      }
+      .border-bottom {
+        border-bottom: black solid 1px;
+      }
+      .border-left {
+        border-left: black solid 1px;
+      }
+      .border-right {
+        border-right: black solid 1px;
+      }
+      .box{
+        min-height: 100px;
+        flex-basis: 10%;
+        border-radius: 5%;
+        box-sizing: border-box;
+        box-shadow: 0 0 10px grey inset ;
+      }
+      /* .box.border-left.border-right{
+        flex-basis: calc(10% - 2px);
+      }
+      .box.border-left:not(.border-right), .box.border-right:not(.border-left){
+        flex-basis: calc(10% - 1px);
+      } */
+    </style>
+  </head>
+  <div class="container">
+    <!-- ROW 1 -->
+    <div class="box bg-cyan border-left border-top border-bottom"></div>
+    <div class="box bg-cyan border-top border-bottom"></div>
+    <div class="box bg-cyan border-top border-bottom"></div>
+    <div class="box bg-cyan border-right border-top border-bottom"></div>
+    <div class="box bg-green border-top border-left border-right"></div>
+    <div class="box bg-yellow border-left border-bottom"></div>
+    <div class="box bg-yellow border-bottom border-right"></div>
+    <div class="box bg-purple border-left border-bottom"></div>
+    <div class="box bg-purple border-right"></div>
+    <div class="box bg-black"></div>
+    <!-- Row 2 -box bg-->
+    <div class="box bg-blue border-left border-top"></div>
+    <div class="box bg-blue border-right border-top"></div>
+    <div class="box bg-orange border-top border-left border-right"></div>
+    <div class="box bg-black"></div>
+    <div class="box bg-green border-left border-bottom"></div>
+    <div class="box bg-green border-top border-right"></div>
+    <div class="box bg-red border-left border-top border-bottom"></div>
+    <div class="box bg-red border-right border-top"></div>
+    <div class="box bg-purple border-left border-right border-bottom"></div>
+    <div class="box bg-black"></div>
+    <!-- Row 3 -box bg-->
+    <div class="box bg-blue border-left border-bottom"></div>
+    <div class="box bg-blue border-right border-bottom"></div>
+    <div class="box bg-orange border-left border-bottom"></div>
+    <div class="box bg-orange border-top border-bottom"></div>
+    <div class="box bg-orange border-right border-top border-bottom"></div>
+    <div class="box bg-green border-left border-right border-bottom"></div>
+    <div class="box bg-black"></div>
+    <div class="box bg-red border-left border-bottom"></div>
+    <div class="box bg-red border-right border-top border-bottom"></div>
+    <div class="box bg-orange border-left border-top"></div>
+  </div>
+</body>
+</html>
