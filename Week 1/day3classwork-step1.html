@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step One</title>
+
+    <style>
+      * {
+        text-align: center;
+        color: white;
+      }
+      .container-body {
+        display: flex;
+        flex-flow: row wrap;
+      }
+      .container-blue {
+        display: flex;
+        flex-flow: row wrap;
+        min-height: 50px;
+        flex-basis: calc((100% / 3) * 2);
+      }
+      .container-red {
+        display: flex;
+        flex-flow: column wrap;
+        min-height: 50px;
+        flex-basis: calc(100% / 3);
+      }
+      .box-blue {
+        background-color: blue;
+        margin: 2px;
+        flex-basis: calc((100% / 3) - 4px);
+      }
+      .box-red {
+        background-color: red;
+        margin: 2px;
+        min-height: 100px;
+      }
+      .header-footer {
+        background-color: black;
+        height: 25px;
+      }
+      .box-order-negative-one {
+        order: -1;
+      }
+      .box-order-positive-one {
+        order: 1;
+      }
+      .box-order-positive-two {
+        order: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header-footer">HEADER</header>
+    <br />
+    <div class="container-body">
+      <div class="container-blue">
+        <div class="box-blue box-order-negative-one">1</div>
+        <div class="box-blue">2</div>
+        <div class="box-blue box-order-positive-two">3</div>
+        <div class="box-blue box-order-positive-one">4</div>
+        <div class="box-blue">5</div>
+        <div class="box-blue box-order-negative-one">6</div>
+      </div>
+
+      <div class="container-red">
+        <div class="box-red box-order-positive-one">1</div>
+        <div class="box-red">2</div>
+        <div class="box-red">3</div>
+      </div>
+    </div>
+    <br />
+    <footer class="header-footer">footer</footer>
+  </body>
+</html>
