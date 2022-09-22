@@ -16,7 +16,21 @@
         background-color: #ccdbdc;
       }
       .flex-basis-20pct {
-        flex-basis: 20%;
+        flex-basis: 25%;
+      }
+      .flex-basis-twothirds {
+        flex-basis: calc(100% / 3 * 2);
+      }
+      .flex-basis-onethird {
+        flex-basis: calc(100% / 3);
+      }
+      .flex-direction-row {
+        flex-direction: row;
+      }
+      @media (max-width: 720px) {
+        .flex-direciton-column {
+          flex-direction: column;
+        }
       }
     </style>
   </head>
@@ -31,8 +45,8 @@
         <div class="text-wrap text-center">FIX IMAGE AND PUT IT HERE</div>
       </div>
       <!-- nav menu -->
-      <div class="container-fluid d-flex justify-content-evenly">
-        <nav class="navbar navbar-expand bg-light">
+      <div class="container-fluid d-flex justify-content-evenly border">
+        <nav class="navbar navbar-expand">
           <div class="container">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <button
@@ -67,9 +81,43 @@
         </nav>
       </div>
       <!-- Body Main -->
-      <div class="container d-flex">
+      <div
+        class="container-fluid d-flex flex-direction-row flex-direciton-column"
+      >
         <!-- Currently Available -->
+        <div class="text-center flex-basis-onethird">
+          <h2>Currently Available</h2>
+          <ul>
+            <li>fish 1</li>
+            <li>fish 2</li>
+            <li>fish 3</li>
+            <li>fish 4</li>
+            <li>fish 5</li>
+          </ul>
+        </div>
         <!-- About Fish -->
+        <div
+          class="d-flex flex-column flex-basis-twothirds text-center justify-content-evenly"
+        >
+          <div class="container-fluid flex-basis-onethird">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eos
+            temporibus incidunt, corrupti obcaecati earum eum corporis
+            blanditiis reprehenderit eius fuga maxime tenetur voluptatum
+            voluptatem? Voluptas culpa soluta ad amet.
+          </div>
+          <div class="container-fluid flex-basis-onethird">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus
+            ipsam, accusamus corrupti deserunt commodi maiores autem rem officia
+            reprehenderit mollitia deleniti iusto possimus tenetur voluptate
+            magni, minus maxime ullam in.
+          </div>
+          <div class="container-fluid flex-basis-onethird">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad magnam
+            expedita quasi culpa asperiores, minima, laborum praesentium magni
+            voluptatem consectetur suscipit ab porro eaque eos corrupti, a
+            adipisci unde perferendis?
+          </div>
+        </div>
       </div>
       <!-- Footer -->
       <div class="container header d-flex flex-row"></div>
