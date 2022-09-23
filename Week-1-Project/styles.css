@@ -3,15 +3,19 @@
 }
 
 .flex-basis-33 {
-    flex-basis: count(100% / 3);
+    flex-basis: calc(100% / 3);
 }
 
 .flex-basis-66 {
-    flex-basis: count(100% / 3 * 2);
+    flex-basis: calc(100% / 3 * 2);
 }
 
 .flex-basis-50 {
     flex-basis: 50%;
+}
+
+.flex-basis-10 {
+    flex-basis: 10%;
 }
 
 .nav-current-page-color {
@@ -26,4 +30,10 @@
 .nav-link:focus:not(.nav-current-page-color) {
     color: goldenrod;
 
+}
+
+@media (max-width: 772px) {
+    .flex-direction-772-column {
+        flex-direction: column;
+    }
 }
