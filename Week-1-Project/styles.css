@@ -13,3 +13,17 @@
 .flex-basis-50 {
     flex-basis: 50%;
 }
+
+.nav-current-page-color {
+    color: blueviolet;
+}
+
+.nav-current-page-color:hover {
+    color: blueviolet;
+}
+
+.nav-link:hover:not(.nav-current-page-color),
+.nav-link:focus:not(.nav-current-page-color) {
+    color: goldenrod;
+
+}
