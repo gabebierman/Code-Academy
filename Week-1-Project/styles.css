@@ -1,0 +1,15 @@
+.flex-basis-20 {
+    flex-basis: 20%;
+}
+
+.flex-basis-33 {
+    flex-basis: count(100% / 3);
+}
+
+.flex-basis-66 {
+    flex-basis: count(100% / 3 * 2);
+}
+
+.flex-basis-50 {
+    flex-basis: 50%;
+}
