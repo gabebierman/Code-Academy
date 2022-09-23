@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>FlexBox</title>
+    <style>
+      /*Feel Free to add classes and styling as you see fit.*/
+      .content {
+        border: 1px solid black;
+        background-color: #ffa500;
+        color: white;
+      }
+      .container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+      }
+      .center {
+        text-align: center;
+      }
+      .basis-25percent {
+        flex-basis: 25%;
+      }
+      .basis-50percent {
+        flex-basis: 50%;
+      }
+      .basis-200px {
+        flex-basis: 200px;
+      }
+      .basis-300px {
+        flex-basis: 300px;
+      }
+      .flex-grow {
+        flex-grow: 1;
+      }
+      .flex-no-shrink {
+        flex-shrink: 0;
+      }
+      .order-negativeone {
+        order: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 class="center">
+      The container below should be a flex box with rows that wrap with space
+      around for justifying content. Follow the instructions for each div below
+      regarding styling guidelines
+    </h3>
+    <div class="container">
+      <div class="content center basis-25percent flex-grow">
+        This div should have a basis width of: 25%, should be able to grow, and
+        should be able to shrink
+      </div>
+      <div class="content center basis-300px flex-no-shrink">
+        This div should have a basis width of: 300px, should NOT be able to
+        grow, and should be NOT able to shrink
+      </div>
+      <div class="content center basis-300px flex-grow">
+        This div should have a basis width of: 300px, should be able to grow,
+        and should be able to shrink
+      </div>
+      <div class="content center basis-300px flex-grow">
+        This div should have a basis width of: 300px, should be able to grow,
+        and should be able to shrink
+      </div>
+      <div class="content center basis-25percent flex-grow">
+        This div should have a basis width of: 25%, should be able to grow, and
+        should be able to shrink
+      </div>
+      <div class="content center basis-50percent flex-grow">
+        This div should have a basis width of: 50%, should be able to grow, and
+        should be able to shrink
+      </div>
+      <div class="content center basis-200px flex-no-shrink">
+        This div should have a basis width of: 200px, should NOT be able to
+        grow, and should NOT be able to shrink
+      </div>
+      <div class="content center basis-200px flex-grow">
+        This div should have a basis width of: 200px, should be able to grow,
+        and should be able to shrink
+      </div>
+      <div class="content center basis-300px">
+        This div should have a basis width of: 300px, should NOT be able to
+        grow, and should be able to shrink
+      </div>
+      <div class="content center basis-50percent flex-grow">
+        This div should have a basis width of: 50%, should be able to grow, and
+        should be able to shrink
+      </div>
+      <div class="content center basis-200px">
+        This div should have a basis width of: 200px, should NOT be able to
+        grow, and should be able to shrink
+      </div>
+      <div class="content center basis-200px flex-grow flex-no-shrink">
+        This div should have a basis width of: 200px, should be able to grow,
+        and should be NOT able to shrink
+      </div>
+      <div class="content center basis-25percent order-negativeone flex-grow">
+        This div should have a basis width of: 25%, should be able to grow,
+        should be able to shrink And should be the first Item
+      </div>
+    </div>
+  </body>
+</html>

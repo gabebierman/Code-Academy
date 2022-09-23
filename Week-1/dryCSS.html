@@ -1,0 +1,90 @@
+<!-- Below is an example of improper use of DRY Practices, taking what you know, fix the CSS AND the HTML to follow DRY practices-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DRY CSS FIX</title>
+    <style>
+      * {
+        color: white;
+      }
+      div {
+        display: inline-block;
+        margin: 5px;
+      }
+      .border-px-solid-black {
+        border: 1px solid black;
+      }
+      .border-2px-solid-red {
+        border: 2px solid red;
+      }
+      .border-2px-solid-black {
+        border: 2px solid black;
+      }
+      .border-radius-10px {
+        border-radius: 10px;
+      }
+      .text-align-right {
+        text-align: right;
+      }
+      .text-align-center {
+        text-align: center;
+      }
+      .size-200px {
+        height: 200px;
+        width: 200px;
+        line-height: 200px;
+      }
+      .size-150px {
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+      }
+      .bg-blue {
+        background-color: #0088ff;
+      }
+      .bg-orange {
+        background-color: #ffa500;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 class="page-header text-align-center bg-orange">DRY CSS</h3>
+    <div class="border-px-solid-black text-align-center size-200px bg-orange">
+      Div 1
+    </div>
+    <div class="border-px-solid-black text-align-center size-200px bg-orange">
+      Div 2
+    </div>
+    <div
+      class="border-2px-solid-red text-align-center size-200px border-radius-10px bg-orange"
+    >
+      Div 3
+    </div>
+    <div
+      class="border-2px-solid-red text-align-center size-200px border-radius-10px bg-orange"
+    >
+      Div 4
+    </div>
+    <div
+      class="border-2px-solid-black text-align-center border-radius-10px size-150px bg-blue"
+    >
+      Div 5
+    </div>
+    <div
+      class="border-2px-solid-black text-align-center border-radius-10px size-150px bg-blue"
+    >
+      Div 6
+    </div>
+    <div
+      class="border-2px-solid-black text-align-center border-radius-10px size-150px bg-blue"
+    >
+      Div 7
+    </div>
+    <div class="text-align-right size-150px bg-blue">Div 8</div>
+    <div class="text-align-right size-150px bg-blue">Div 9</div>
+    <div class="text-align-right size-150px bg-blue">Div 10</div>
+    <h3 class="page-footer text-align-right bg-blue">What can we fix?</h3>
+  </body>
+</html>
