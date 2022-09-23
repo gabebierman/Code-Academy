@@ -32,7 +32,7 @@
           flex-direction: column;
         }
       }
-      .max-fish-size{
+      .fish-max-size{
         display: block;
         max-width: 300px;
         max-height: 200px;
@@ -48,6 +48,9 @@
       }
       .text-vertical-center{
         align-self: center;
+      }
+      .max-section-height{
+        max-height: 400px;
       }
     </style>
   </head>
@@ -103,7 +106,7 @@
           class="container-fluid d-flex flex-direction-row flex-direciton-column"
         >
           <!-- Currently Available -->
-          <div class="text-center flex-basis-onethird">
+          <div class="text-center flex-basis-onethird max-section-height">
             <h2>Currently Available</h2>
             <br />
             <ul>
@@ -121,7 +124,7 @@
           >
             <div class="container d-flex flex-direction-row flex-direciton-column flex-basis-onethird">
               <img
-                class=" flex-basis-onethird max-fish-size mx-auto"
+                class=" flex-basis-onethird fish-max-size mx-auto"
                 src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\atlantic.jfif"
               />
               <p class="flex-basis-twothirds align-middle text-vertical-center">
@@ -134,7 +137,7 @@
             <br>
             <div class="container d-flex flex-direction-row flex-direciton-column flex-basis-onethird">
               <img
-                class="flex-basis-onethird max-fish-size mx-auto"
+                class="flex-basis-onethird fish-max-size mx-auto"
                 src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\coho.jpg"
               />
               <p class="flex-basis-twothirds text-vertical-center align-middle">
@@ -142,11 +145,11 @@
                 temporibus incidunt, corrupti obcaecati earum eum corporis
                 blanditiis reprehenderit eius fuga maxime tenetur voluptatum
                 voluptatem? Voluptas culpa soluta ad amet.
-          </div>
-          <br>
-          <div class="container d-flex flex-direction-row flex-direciton-column flex-basis-onethird">
+            </div>
+            <br>
+            <div class="container d-flex flex-direction-row flex-direciton-column flex-basis-onethird">
               <img
-                class="flex-basis-onethird max-fish-size mx-auto"
+                class="flex-basis-onethird fish-max-size mx-auto"
                 src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\rainbow.jpg"
               />
               <p class="flex-basis-twothirds text-vertical-center align-middle">
@@ -154,9 +157,15 @@
                 temporibus incidunt, corrupti obcaecati earum eum corporis
                 blanditiis reprehenderit eius fuga maxime tenetur voluptatum
                 voluptatem? Voluptas culpa soluta ad amet.
+            </div>
         </div>
+        <br>
+    </div> 
       <!-- Footer -->
-      <div class="container header d-flex flex-row"></div>
-    </div>
+      <div
+      class="container-fluid d-flex flex-row border justify-content-evenly flex-basis-20pct"
+        >
+            <h2 class="text-wrap text-center align-middle">Only The Freshest Fish in Omaha, NE</h2>    
+    
   </body>
 </html>
