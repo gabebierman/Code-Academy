@@ -32,7 +32,23 @@
           flex-direction: column;
         }
       }
-     
+      .max-fish-size{
+        display: block;
+        max-width: 300px;
+        max-height: 200px;
+        width: auto;
+        height: auto;
+      }
+      .img-max-width{
+        display: block;
+        max-width: 150;
+        max-height: 100px;
+        width: auto;
+        height: auto;
+      }
+      .text-vertical-center{
+        align-self: center;
+      }
     </style>
   </head>
   <body>
@@ -42,8 +58,8 @@
       <div
         class="container-fluid d-flex flex-row border justify-content-evenly flex-basis-20pct"
       >
-        <h1 class="text-wrap text-center">Hungry Bear Fisheries</h1>
-        <div class="text-wrap text-center">FIX IMAGE AND PUT IT HERE</div>
+        <h1 class="text-wrap text-center align-middle">Hungry Bear Fisheries</h1>
+        <img class="img-fluid img-max-width" src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\bear.jpg" ></img>
       </div>
       <!-- nav menu -->
       <div class="container-fluid d-flex justify-content-evenly border">
@@ -82,60 +98,63 @@
         </nav>
       </div>
       <br />
-      <!-- Body Main -->
-      <div
-        class="container-fluid d-flex flex-direction-row flex-direciton-column"
-      >
-        <!-- Currently Available -->
-        <div class="text-center flex-basis-onethird">
-          <h2>Currently Available</h2>
-          <br />
-          <ul>
-            <li>fish 1</li>
-            <li>fish 2</li>
-            <li>fish 3</li>
-            <li>fish 4</li>
-            <li>fish 5</li>
-          </ul>
-        </div>
-        <!-- About Fish -->
+        <!-- Body Main -->
         <div
-          class="d-flex flex-column flex-basis-twothirds text-center justify-content-evenly"
+          class="container-fluid d-flex flex-direction-row flex-direciton-column"
         >
-          <div class="container d-flex flex-direction-row flex-direciton-column flex-basis-onethird">
-            <img
-              class="img-fluid flex-basis-onethird"
-              src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\atlantic.jfif"
-            />
-            <p class="flex-basis-twothirds">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eos
-              temporibus incidunt, corrupti obcaecati earum eum corporis
-              blanditiis reprehenderit eius fuga maxime tenetur voluptatum
-              voluptatem? Voluptas culpa soluta ad amet.
-            </p>
+          <!-- Currently Available -->
+          <div class="text-center flex-basis-onethird">
+            <h2>Currently Available</h2>
+            <br />
+            <ul>
+              <li>Atlantic Salmon</li>
+              <li>Coho Salmon</li>
+              <li>Chinhook Salmon</li>
+              <li>Sockeye Salmon</li>
+              <li>Pink Salmon</li>
+              <li>Rainbow Trout</li>
+            </ul>
           </div>
+          <!-- About Fish -->
+          <div
+            class="d-flex flex-column flex-basis-twothirds text-center justify-content-evenly"
+          >
+            <div class="container d-flex flex-direction-row flex-direciton-column flex-basis-onethird">
+              <img
+                class=" flex-basis-onethird max-fish-size mx-auto"
+                src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\atlantic.jfif"
+              />
+              <p class="flex-basis-twothirds align-middle text-vertical-center">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eos
+                temporibus incidunt, corrupti obcaecati earum eum corporis
+                blanditiis reprehenderit eius fuga maxime tenetur voluptatum
+                voluptatem? Voluptas culpa soluta ad amet.
+              </p>
+            </div>
+            <br>
+            <div class="container d-flex flex-direction-row flex-direciton-column flex-basis-onethird">
+              <img
+                class="flex-basis-onethird max-fish-size mx-auto"
+                src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\coho.jpg"
+              />
+              <p class="flex-basis-twothirds text-vertical-center align-middle">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eos
+                temporibus incidunt, corrupti obcaecati earum eum corporis
+                blanditiis reprehenderit eius fuga maxime tenetur voluptatum
+                voluptatem? Voluptas culpa soluta ad amet.
+          </div>
+          <br>
           <div class="container d-flex flex-direction-row flex-direciton-column flex-basis-onethird">
-            <img
-              class="img-fluid flex-basis-onethird"
-              src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\coho.jpg"
-            />
-            <p class="flex-basis-twothirds">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eos
-              temporibus incidunt, corrupti obcaecati earum eum corporis
-              blanditiis reprehenderit eius fuga maxime tenetur voluptatum
-              voluptatem? Voluptas culpa soluta ad amet.
+              <img
+                class="flex-basis-onethird max-fish-size mx-auto"
+                src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\rainbow.jpg"
+              />
+              <p class="flex-basis-twothirds text-vertical-center align-middle">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eos
+                temporibus incidunt, corrupti obcaecati earum eum corporis
+                blanditiis reprehenderit eius fuga maxime tenetur voluptatum
+                voluptatem? Voluptas culpa soluta ad amet.
         </div>
-        <div class="container d-flex flex-direction-row flex-direciton-column flex-basis-onethird">
-            <img
-              class="img-fluid flex-basis-onethird"
-              src="D:\VS Code Files\Code Academy\Week 1\thursday-classwork-images\rainbow.jpg"
-            />
-            <p class="flex-basis-twothirds">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eos
-              temporibus incidunt, corrupti obcaecati earum eum corporis
-              blanditiis reprehenderit eius fuga maxime tenetur voluptatum
-              voluptatem? Voluptas culpa soluta ad amet.
-      </div>
       <!-- Footer -->
       <div class="container header d-flex flex-row"></div>
     </div>
