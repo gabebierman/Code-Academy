@@ -37,3 +37,15 @@
         flex-direction: column;
     }
 }
+
+.img-flex {
+    flex-basis: 100px;
+    max-width: 100px;
+    align-self: center;
+}
+
+@media (min-width: 772px) {
+    .link-menu-772 {
+        visibility: hidden;
+    }
+}
