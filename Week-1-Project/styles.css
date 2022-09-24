@@ -53,3 +53,15 @@
 .margin-bottom {
     margin-bottom: auto;
 }
+
+.scale:hover {
+    transition: all 600ms linear 100ms;
+    -webkit-transform: scale(4, 4);
+    transform: scale(4, 4);
+}
+
+.scale-no-hover:not(hover) {
+    transition: all 600ms linear 100ms;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
