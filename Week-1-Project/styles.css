@@ -1,3 +1,7 @@
+* {
+    background-color: #ccdbdc;
+}
+
 .flex-basis-20 {
     flex-basis: 20%;
 }
@@ -19,16 +23,16 @@
 }
 
 .nav-current-page-color {
-    color: blueviolet;
+    color: #488286;
 }
 
 .nav-current-page-color:hover {
-    color: blueviolet;
+    color: #488286;
 }
 
 .nav-link:hover:not(.nav-current-page-color),
 .nav-link:focus:not(.nav-current-page-color) {
-    color: goldenrod;
+    color: #FB8B24;
 
 }
 
@@ -87,4 +91,27 @@
 
 .font-mich {
     font-family: 'Michroma', sans-serif;
+}
+
+.bg-steelteal {
+    background-color: #488286;
+}
+
+.bg-darkslategray {
+    background-color: #305252;
+}
+
+.bg-onyx {
+    background-color: #373E40;
+}
+
+
+.bg-darkorange {
+    background-color: #FB8B24;
+}
+
+@media (min-width: 772px) {
+    .margin-right-5px {
+        margin-right: 5px;
+    }
 }
