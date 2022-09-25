@@ -72,5 +72,6 @@
 }
 
 .textbox-size {
-    size: 500px;
+    min-width: 80%;
+    min-height: 25%;
 }
