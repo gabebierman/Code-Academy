@@ -5,61 +5,133 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-    crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" type="text/css" />
     <title>Contact</title>
   </head>
   <body>
     <!-- Page -->
-    <div class="container-fluid d-flex flex-column">
-      <!-- Header -->
-      <header
-        class="border container-fluid d-flex flex-row justify-content-evenly flex-basis-20"
+    <!-- <div class="container-fluid d-flex flex-column"> -->
+    <!-- Header -->
+    <header
+      class="border container-fluid d-flex flex-row justify-content-evenly flex-basis-20 align-items-center"
+    >
+      <div
+        class="border container-fluid d-flex flex-basis-50 justify-content-evenly"
       >
-        <div
-          class="border container-fluid d-flex flex-basis-50 justify-content-evenly"
-        >
-          <h1 class="text-wrap text-center align-middle">House of Junk</h1>
-        </div>
-        <div
-          class="border container-fluid d-flex flex-basis-50 justify-content-evenly"
-        >
-          <img
-            src="https://via.placeholder.com/150"
-            alt="placeholder header"
-            id="placeholder header"
-            title="gray box, 150x150 base"
-            style="display: block"
-            class="img-fluid text-wrap text-center align-middle"
-          />
-        </div>
-      </header>
+        <h1 class="text-wrap text-center align-middle">House of Junk</h1>
+      </div>
+      <div
+        class="border container-fluid d-flex flex-basis-50 justify-content-evenly"
+      >
+        <img
+          src="https://via.placeholder.com/150"
+          alt="placeholder header"
+          id="placeholder header"
+          title="gray box, 150x150 base"
+          style="display: block"
+          class="img-fluid text-wrap text-center align-middle"
+        />
+      </div>
+    </header>
     <!-- Nav -->
-      <div class="container-fluid d-flex justify-content-evenly border">
-        <nav class="navbar navbar-expand">
-          <div class="container">
-          
-            <div class="collapse navbar-collapse" id="navbarAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-link text-wrap text-center" href="./index.html">Home</a>
-                <a class="nav-link text-wrap text-center" href="./for-sale.html">For Sale</a>
-                <a class="nav-link text-wrap text-center nav-current-page-color" aria-current="page" href="#"
-                  >Contact Us</a
-                >
-              </div>
+    <div class="container-fluid d-flex justify-content-evenly border">
+      <nav class="navbar navbar-expand">
+        <div class="container">
+          <div class="collapse navbar-collapse" id="navbarAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link text-wrap text-center" href="./index.html"
+                >Home</a
+              >
+              <a class="nav-link text-wrap text-center" href="./for-sale.html"
+                >For Sale</a
+              >
+              <a
+                class="nav-link text-wrap text-center nav-current-page-color"
+                aria-current="page"
+                href="#"
+                >Contact Us</a
+              >
             </div>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
+    </div>
     <!-- Main Body -->
+    <div class="container border" style="height: 100%">
+      <!-- Comment container -->
+      <div
+        class="border container d-flex flex-column align-items-center flex-comment-form"
+      >
+        <h2>Contact Us</h2>
+        <div class="border">
+          <!-- first name -->
+          <label for="fname">First Name:</label>
+          <input type="text" id="fname" placeholder="John" />
+        </div>
+        <div class="border">
+          <!-- last name -->
+          <label for="lname">Last Name:</label>
+          <input type="text" id="lname" placeholder="Smith" />
+        </div>
+        <div class="border">
+          <!-- email -->
+          <label for="email">Email:</label>
+          <input type="email" id="emial" placeholder="yourname@email.com" />
+        </div>
+        <div class="border">
+          <!-- comment box -->
+          <label for="comment">Comment</label>
+          <input
+            class="textbox-size"
+            type="text"
+            id="comment"
+            placeholder="Type here.."
+          />
+        </div>
+        <div class="border">
+          <!-- 3 radio select -->
+          <label for="complaint">Complaint:</label>
+          <input
+            type="radio"
+            id="complaint"
+            value="complaint"
+            name="comment-type"
+          />
+          <label for="suggestion">Suggestion:</label>
+          <input
+            type="radio"
+            id="suggestion"
+            value="suggestion"
+            name="comment-type"
+          />
+          <label for="question">Question:</label>
+          <input
+            type="radio"
+            id="question"
+            value="question"
+            name="comment-type"
+          />
+        </div>
+        <div>
+          <!-- submit button -->
+          <button type="button" class="btn btn-secondary">Submit</button>
+        </div>
+      </div>
+    </div>
     <!-- Footer -->
-    <br>
-    <footer class="border d-flex flex-row justify-content-evenly" style="max-height: 80px;">
-      <div class="border container-fluid d-flex flex-basis-33 justify-content-evenly">
+    <br />
+    <footer
+      class="border d-flex flex-row justify-content-evenly align-items-center"
+      style="max-height: 80px"
+    >
+      <div
+        class="border container-fluid d-flex flex-basis-33 justify-content-evenly"
+      >
         <img
           src="https://via.placeholder.com/50"
           alt="placeholder footer 1"
@@ -69,10 +141,14 @@
           class="img-fluid text-wrap text-center align-middle"
         />
       </div>
-      <div class="border container-fluid d-flex flex-basis-33 justify-content-evenly">
-        <h4 class="text-wrap text-center align-middle ">©HOUSE OF JUNK 2022</h4>
+      <div
+        class="border container-fluid d-flex flex-basis-33 justify-content-evenly"
+      >
+        <h4 class="text-wrap text-center align-middle">©HOUSE OF JUNK 2022</h4>
       </div>
-      <div class="border container-fluid d-flex flex-basis-33 justify-content-evenly">
+      <div
+        class="border container-fluid d-flex flex-basis-33 justify-content-evenly"
+      >
         <img
           src="https://via.placeholder.com/50"
           alt="placeholder footer 2"

@@ -65,3 +65,12 @@
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
 }
+
+.flex-comment-form {
+    width: 75%;
+    height: 100%;
+}
+
+.textbox-size {
+    size: 500px;
+}
