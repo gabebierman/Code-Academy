@@ -1,5 +1,6 @@
 * {
     background-color: #ccdbdc;
+
 }
 
 .flex-basis-20 {
@@ -93,6 +94,10 @@
     font-family: 'Michroma', sans-serif;
 }
 
+.bg-gainsboro {
+    background-color: #CCDBDC;
+}
+
 .bg-steelteal {
     background-color: #488286;
 }
@@ -114,4 +119,8 @@
     .margin-right-5px {
         margin-right: 5px;
     }
+}
+
+.footer-padding {
+    padding-top: 25px;
 }
