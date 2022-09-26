@@ -115,6 +115,10 @@
     background-color: #FB8B24;
 }
 
+.text-color-gainsboro {
+    color: #CCDBDC;
+}
+
 @media (min-width: 772px) {
     .padding-right-15px {
         padding-right: 15px;
@@ -133,4 +137,12 @@
 
 .padding-bottom-10px {
     padding-bottom: 10px;
+}
+
+.bg-coppercrayola {
+    background-color: #CE8964;
+}
+
+.text-color-onyx {
+    color: #373E40
 }
