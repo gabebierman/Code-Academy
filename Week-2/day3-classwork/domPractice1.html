@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 200px;
+        width: 200px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="class1 class3">Div 1</div>
+    <div class="class2">Div 2</div>
+    <div class="class2 class4">Div 3</div>
+    <div class="class1 class4">Div 4</div>
+    <div class="class1 class2">Div 5</div>
+    <div class="class5">Div 6</div>
+    <div class="class5">Div 7</div>
+    <div class="class1 class5" id="div8">Div 8</div>
+    <div class="class5 class4" id="div9">Div 9</div>
+    <div class="class1" id="div10">Div 10</div>
+    <script>
+      "use strict";
+      //! Make the following changes in order:
+      //!    1. Every div with `.class1` should have an orange border
+      let div1 = document.querySelectorAll(".class1");
+      for (let i = 0; i < div1.length; i++) {
+        div1[i].style.borderColor = "orange";
+      }
+
+      //!    2. Every div with `.class3` should have red text
+      let div2 = document.querySelectorAll(".class3");
+      for (let i = 0; i < div2.length; i++) {
+        div2[i].style.color = "red";
+      }
+
+      //only works with querySelectorAll bc the array that QuerySelectorAll returns has the foreach prototypical function
+      div2.forEach((val) => (val.style.color = "red"));
+
+      // !    3. Every div with `.class4` should have blue text
+      let div3 = document.querySelectorAll(".class4");
+      // console.log(div3);
+      div3.forEach((val) => (val.style.color = "blue"));
+
+      //!    4. Remove `.class5` from all divs with `.class5` and replace with .class6
+      let divReplace = document.querySelectorAll(".class5");
+
+      divReplace.forEach((cls) => cls.classList.replace("class5", "class6"));
+      // divReplace.forEach((cls) => cls.classList.add("class6"));
+
+      for (let i = 0; i < divReplace.length; i++) {
+        divReplace[i].classList.replace("class5", "class6");
+        // divReplace[i].classList.add("class6");
+      }
+
+      // console.log(divReplace);
+
+      //!    5. Add `.class7` to ALL divs
+
+      let divs = document.querySelectorAll("div");
+      for (let i = 0; i < divs.length; i++) {
+        divs[i].classList.add("class7");
+      }
+
+      //!    6. Remove the element with `#div8`
+
+      let divRemove8 = document.getElementById("div8");
+      divRemove8.remove();
+
+      //!    7. Take the div with `#div9` and move it to the top
+
+      let divMove9 = document.getElementById("div9");
+      document.body.prepend(divMove9);
+
+      //!    8. All divs with `.class2` should have a black background with white text
+
+      let div8 = document.querySelectorAll(".class2");
+      for (let i = 0; i < div8.length; i++) {
+        div8[i].style.backgroundColor = "black";
+        div8[1].style.color = "white";
+      }
+
+      // div8.forEach((element) => {
+      //   div8.style.color = "white";
+      //   div8.style.backgroundColor = "black";
+      // });
+
+      //!    9. Take the div with `#div10` and reduce the height and width to 42% of what it was
+      //!       (without hard-coding the number) and then change the id to `div10New`
+
+      let div10 = document.getElementById("div10");
+      div10.style.height = `${div10.clientHeight * 0.42}px`;
+      div10.style.width = `${div10.clientWidth * 0.42}px `;
+    </script>
+  </body>
+</html>

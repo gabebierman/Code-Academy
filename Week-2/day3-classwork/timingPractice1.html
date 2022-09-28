@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 300px;
+        width: 100%;
+        color: white;
+        font-size: 200px;
+        line-height: 300px;
+        text-align: center;
+      }
+      .green {
+        background-color: green;
+      }
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="green" id="clock"></div>
+    <script>
+      //! Create a simple site that prompts the user for a time limit.
+      let timeInt = parseInt(
+        prompt("Enter a time interval for countdown in seconds")
+      );
+      //! Start the clock/div with a green background added by a class.
+
+      //! Display the starting time on the DOM.
+
+      //! Count the time down every second and update the dom.
+      // let counter = timeInt * 1000;
+
+      let clock = document.getElementById("clock");
+      clock.innerText = timeInt;
+
+      let timeRef = setInterval(() => {
+        timeInt--;
+        clock.innerText = timeInt;
+      }, 1000);
+
+      setTimeout(() => {
+        clock.classList.replace("green", "red");
+        3;
+        clearInterval(timeRef);
+      }, timeInt * 1000);
+
+      //! When the timer reaches zero:
+      //!   - Remove the class with the green background and add one with a red background. +++
+      //!   - The timer should also stop counting down.
+    </script>
+  </body>
+</html>

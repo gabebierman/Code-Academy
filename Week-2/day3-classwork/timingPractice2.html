@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      height: 150px;
+      width: 100%;
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <!-- Create a simple website with 4 divs with no styling. -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      //! Use javascript to select all 4 of them into an array
+      let divs = document.getElementsByTagName("div");
+
+      function highlightDiv() {
+        //! Shuffle the array into a random order
+        let randomDiv = divs[Math.floor(Math.random() * divs.length)];
+        console.log(randomDiv);
+        //! Going through the array one element at a time have the following happen:
+        //!   1. Have the active div change color (to a color of your choice) for 2 seconds.
+        randomDiv.style.backgroundColor = "aquamarine";
+        //!   2. Reset the color of the active div to it's starting color
+        setTimeout(() => {
+          randomDiv.style.backgroundColor = "white";
+        }, 2000);
+        //!   3. After half a second, repeat these steps for the remaining divs.
+      }
+      setInterval(() => {
+        highlightDiv();
+      }, 500);
+
+      // highlightDiv();
+      //! Take the above code and find a way to have the cycle keep going.
+    </script>
+  </body>
+</html>

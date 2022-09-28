@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //! Once the page loads, create 4 divs of different styling and add them to the DOM.
+      //! The styling should be built in the raw javascript and should have the following styles:
+      //!   - Div 1 - Red background with black border, 200px by 200px
+
+      let div1 = document.createElement("div");
+
+      div1.style.backgroundColor = "red";
+      div1.style.border = "2px solid black";
+      div1.style.height = "200px";
+      div1.style.width = "200px";
+
+      document.body.append(div1);
+
+      //!   - Div 2 - Blue background, circular shape, 100px by 100px
+
+      let div2 = document.createElement("div");
+
+      div2.style.backgroundColor = "blue";
+      div2.style.height = "100px";
+      div2.style.width = "100px";
+      div2.style.borderRadius = "50%";
+
+      document.body.append(div2);
+
+      //!   - Div 3 - Orange Border, white with red text that says: "Div 3" 150px by 100px
+
+      let div3 = document.createElement("div");
+
+      div3.style.border = "2px solid orange";
+      div3.style.height = "150px";
+      div3.style.width = "100px";
+      div3.style.color = "red";
+      div3.innerText = "Div 3";
+
+      document.body.append(div3);
+
+      //!   - Div 4 - Fixed to the top, any color not taken for background and taking up the
+      //!     full width of the page.
+
+      let div4 = document.createElement("div");
+      div4.style.backgroundColor = "purple";
+      div4.style.width = "100%";
+      div4.style.position = "fixed";
+      div4.style.top = "0px";
+      div4.style.height = "50px";
+
+      document.body.append(div4);
+    </script>
+  </body>
+</html>

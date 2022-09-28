@@ -109,8 +109,19 @@ if(b < a){
 
 // -----------------------------------------------------------------
 //! Write a function that takes a day month and year (in whatever format you choose)
-//! and return what day that was. Try doing this both WITH and WITHOUT the use of built in libraries.
+//! and return what day that was. Try doing this both WITH and WITHOUT the use of built in libraries..
 
+const weekday = ["Sun" , "Mon" , "Tue" , "Wed" , "Thur" , "Fri" , "Sat"]
+
+function findDay(date){
+    //take date input and plug into next phrase
+    let d = new Date(date);
+    // console.log(d)
+    d = weekday[d.getDay()];
+    console.log(d)
+}
+
+findDay(06251995)
 // -----------------------------------------------------------------
 //! Write a function to see if a pizza can be split evenly amongst a group of people.
 //! The function should take two arguments: the number of people present, and the number of slices of the pizza.
@@ -202,6 +213,35 @@ function health2(damage, hp){
 // -----------------------------------------------------------------
 //! BONUS:
 //! Use recursion for function 2
+
+
+// const nascar = (word) => {
+//     const reverseWord = word.split("").reverse().join("");
+//     if (reverseWord.toLowerCase() === word.toLowerCase()) {
+//         console.log("true");
+//     } else{
+//         console.log("not");
+//     }
+// };
+
+function fibonacciRecursive(num) {
+    if (num <= 1) return 1;
+
+    return fibonacciRecursive(num - 1) + fibonacciRecursive(num - 2);
+  }
+
+  function palindromeRecursion(word){
+    if (word.charAt(0) == word.charAt(word.length - 1)) {
+        return palindromeRecursion();
+    }
+
+}
+
+
+const pal = (word) => word.split("").reverse().join("") === word ? true : false
+
+palindromeRecursion("hello")
+
 
 //! EXTRA BONUS:
 // -----------------------------------------------------------------
