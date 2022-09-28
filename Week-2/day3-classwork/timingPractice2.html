@@ -33,14 +33,12 @@
         //!   2. Reset the color of the active div to it's starting color
         setTimeout(() => {
           randomDiv.style.backgroundColor = "white";
-        }, 2000);
+
+          setTimeout(highlightDiv, 50);
+        }, 500);
         //!   3. After half a second, repeat these steps for the remaining divs.
       }
-      setInterval(() => {
-        highlightDiv();
-      }, 500);
-
-      // highlightDiv();
+      highlightDiv();
       //! Take the above code and find a way to have the cycle keep going.
     </script>
   </body>
