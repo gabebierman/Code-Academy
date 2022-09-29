@@ -33,7 +33,9 @@ function compare(userPick, compPick) {
     if (userPick === compPick) {
         displayResult("tie");
     }
-    else if ((userPick === "rock" && compPick === "paper") || (userPick === "paper" && compPick === "scissors") || (userPick === "scissors" && compPick === "rock")) {
+    else if ((userPick === "rock" && compPick === "paper") || 
+    (userPick === "paper" && compPick === "scissors") || 
+    (userPick === "scissors" && compPick === "rock")) {
         displayResult("loss");
     }
     else {
