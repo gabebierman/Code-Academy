@@ -86,7 +86,7 @@ butStart.forEach((btn) => {
     btn.addEventListener("click", playGame);
 });
 
-let divMole = document.getElementsByTagName("div");
+let divMole = document.getElementsByClassName("mole");
 
 let clock = document.getElementById("clock");
 

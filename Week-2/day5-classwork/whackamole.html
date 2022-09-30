@@ -11,12 +11,19 @@
                 flex-basis: 19%;
                 border: 1px solid black;
             }
+            .div-radio {
+                flex-basis: auto;
+                justify-content: left;
+                height: auto;
+                border: none;
+            }
             .flex-container {
                 width: 100%;
                 flex: auto;
                 flex-flow: wrap;
                 display: flex;
                 justify-content: space-evenly;
+                padding-bottom: 5px;
             }
             .green {
                 background-color: green;
@@ -33,56 +40,66 @@
     <body>
         <main class="flex-container">
             <span id="count">Score: 0</span>
-            <input
-                class="radio"
-                id="easy"
-                type="radio"
-                value="easy"
-                name="difRad"
-            />
-            <input
-                class="radio"
-                id="medium"
-                type="radio"
-                value="medium"
-                name="difRad"
-            />
-            <input
-                class="radio"
-                id="hard"
-                type="radio"
-                value="hard"
-                name="difRad"
-            />
+            <div class="div-radio">
+                <input
+                    class="radio"
+                    id="easy"
+                    type="radio"
+                    value="easy"
+                    name="difRad"
+                />
+                <label for="easy">easy</label>
+            </div>
+            <div class="div-radio">
+                <input
+                    class="radio"
+                    id="medium"
+                    type="radio"
+                    value="medium"
+                    name="difRad"
+                />
+
+                <label for="medium">medium</label>
+            </div>
+            <div class="div-radio">
+                <input
+                    class="radio"
+                    id="hard"
+                    type="radio"
+                    value="hard"
+                    name="difRad"
+                />
+                <label for="hard">hard</label>
+            </div>
             <button class="but-start" id="start">Begin!</button>
             <span id="clock"></span>
         </main>
         <main class="flex-container">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
+            <div class="mole"></div>
         </main>
         <script src="./whackamole.js"></script>
     </body>
