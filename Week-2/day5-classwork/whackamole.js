@@ -18,9 +18,29 @@ const hitCount = { hit: 1 };
 
 let gameActive = false;
 
+let timer = 10;
+
+let timeRef = 1000;
+
 let butStart = document.querySelectorAll("#start");
 
 let difTime;
+
+let divClick = document.querySelectorAll("div");
+
+let divMole = document.getElementsByClassName("mole");
+
+let clock = document.getElementById("clock");
+
+clock.innerText = "Time remaining: 0";
+
+divClick.forEach((btn) => {
+    btn.addEventListener("click", clickLog);
+});
+
+butStart.forEach((btn) => {
+    btn.addEventListener("click", playGame);
+});
 
 function playGame() {
     if (gameActive === false) {
@@ -74,28 +94,6 @@ function clickLog(e) {
     }
 }
 
-let divClick = document.querySelectorAll("div");
-
-divClick.forEach((btn) => {
-    btn.addEventListener("click", clickLog);
-});
-
-let timer = 10;
-
-butStart.forEach((btn) => {
-    btn.addEventListener("click", playGame);
-});
-
-let divMole = document.getElementsByClassName("mole");
-
-let clock = document.getElementById("clock");
-
-clock.innerText = "Time remaining: 0";
-
-//one random box, higlight, move on
-
-let timeRef = 1000;
-
 function highlightDiv() {
     let randomDiv = divMole[Math.floor(Math.random() * divMole.length)];
     randomDiv.className = "green";
@@ -107,7 +105,6 @@ function highlightDiv() {
     }, difTime);
 }
 
-//set timer, increment, stop timer
 function timerCount() {
     let timeRef = setInterval(() => {
         timer--;
