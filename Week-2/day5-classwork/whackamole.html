@@ -20,11 +20,19 @@
       .green {
         background-color: green;
       }
+      .but-start {
+        flex-basis: calc(100% / 5);
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 5px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
-    <main>
+    <main class="flex-container">
       <span id="count">0</span>
+      <button class="but-start" id="start">Begin!</button>
     </main>
     <main class="flex-container">
       <div></div>
