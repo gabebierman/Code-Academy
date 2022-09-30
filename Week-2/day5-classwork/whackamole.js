@@ -1,14 +1,4 @@
-let basediv = document.getElementsByTagName("div");
-
-function highlightDiv() {
-    let randomDiv = basediv[Math.floor(Math.random() * basediv.length)];
-    randomDiv.className = "green"
-    setTimeout(() => {
-    randomDiv.className = "";
-    setTimeout(highlightDiv, 500);
-    }, 2000);
-}
-highlightDiv();
+// highlightDiv();
 
       //? Build a whack-a-mole game:
 
@@ -41,11 +31,28 @@ function clickLog(e) {
     }
 }
 
-let divs = document.querySelectorAll("div")
+let divClick = document.querySelectorAll("div")
 
-divs.forEach((btn) => {
+divClick.forEach((btn) => {
     btn.addEventListener("click", clickLog);
 });
 
+
+let butStart = document.querySelectorAll("#start")
+
+butStart.forEach((btn) =>{
+    btn.addEventListener("click" , highlightDiv)
+})
+
+let divMole = document.getElementsByTagName("div");
+
+function highlightDiv() {
+    let randomDiv = divMole[Math.floor(Math.random() * divMole.length)];
+    randomDiv.className = "green"
+    setTimeout(() => {
+    randomDiv.className = "";
+    setTimeout(highlightDiv, 500);
+    }, 500);
+}
 
 
