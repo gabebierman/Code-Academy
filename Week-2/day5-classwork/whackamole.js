@@ -1,10 +1,10 @@
-let divs = document.getElementsByTagName("div");
+let basediv = document.getElementsByTagName("div");
 
 function highlightDiv() {
-    let randomDiv = divs[Math.floor(Math.random() * divs.length)];
-    randomDiv.style.backgroundColor = "red";
+    let randomDiv = basediv[Math.floor(Math.random() * basediv.length)];
+    randomDiv.className = "green"
     setTimeout(() => {
-    randomDiv.style.backgroundColor = "white";
+    randomDiv.className = "";
     setTimeout(highlightDiv, 500);
     }, 2000);
 }
@@ -19,5 +19,33 @@ highlightDiv();
 // If a user clicks one of the divs while it is lit up, a score counter at the top should increment by one.
 // After the timer ends, the cycle should stop and the user should see their score and have the ability to start a new game. Starting a new game should reset the score and start over.
 // If you would like / have time add the ability to choose a difficulty when the user starts the game.
+
+
+//* click when box is lit up
+// if click is true while backgroundcolor is x then hitCounter++ 
+// if e => e.target.backgroundColor === highlightColor {hitCounter++}
+
+const hitCount = {hit : 1}
+
+function clickLog(e) {   
+    let targetBGColor = "green"
+    let clickBGColor = e.target.className;
+    console.log(clickBGColor)
+    if (clickBGColor === targetBGColor){
+        // hitCount++
+        console.log("hit")
+        document.getElementById("count").innerText = hitCount.hit++
+    }
+    else{
+        console.log("miss")
+    }
+}
+
+let divs = document.querySelectorAll("div")
+
+divs.forEach((btn) => {
+    btn.addEventListener("click", clickLog);
+});
+
 
 
