@@ -57,7 +57,7 @@ function playGame() {
         }, timer * 1000);
         document.getElementById("count").innerText = "Score: 0";
         hitCount.hit = 1;
-        clock.innerText = timer;
+        clock.innerText = "Time remaining: " + timer;
     }
 }
 
@@ -90,7 +90,7 @@ let divMole = document.getElementsByClassName("mole");
 
 let clock = document.getElementById("clock");
 
-clock.innerText = timer;
+clock.innerText = "Time remaining: 0";
 
 //one random box, higlight, move on
 
@@ -111,7 +111,7 @@ function highlightDiv() {
 function timerCount() {
     let timeRef = setInterval(() => {
         timer--;
-        clock.innerText = timer;
+        clock.innerText = "Time remaining: " + timer;
     }, 1000);
     setTimeout(() => {
         clearInterval(timeRef);
