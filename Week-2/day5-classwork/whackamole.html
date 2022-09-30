@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      div {
-        height: 100px;
-        flex-basis: 19%;
-        border: 1px solid black;
-      }
-      .flex-container {
-        width: 100%;
-        flex: auto;
-        flex-flow: wrap;
-        display: flex;
-      }
-      .green {
-        background-color: green;
-      }
-      .but-start {
-        flex-basis: calc(100% / 5);
-        border: 2px solid black;
-        border-radius: 10px;
-        padding: 5px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <main class="flex-container">
-      <span id="count">0</span>
-      <button class="but-start" id="start">Begin!</button>
-      <span id="clock"></span>
-    </main>
-    <main class="flex-container">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </main>
-    <script src="./whackamole.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            div {
+                height: 100px;
+                flex-basis: 19%;
+                border: 1px solid black;
+            }
+            .flex-container {
+                width: 100%;
+                flex: auto;
+                flex-flow: wrap;
+                display: flex;
+                justify-content: space-evenly;
+            }
+            .green {
+                background-color: green;
+            }
+            .but-start {
+                flex-basis: calc(100% / 5);
+                border: 2px solid black;
+                border-radius: 10px;
+                padding: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="flex-container">
+            <span id="count">Score: 0</span>
+            <button class="but-start" id="start">Begin!</button>
+            <span id="clock"></span>
+        </main>
+        <main class="flex-container">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </main>
+        <script src="./whackamole.js"></script>
+    </body>
 </html>

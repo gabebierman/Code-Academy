@@ -23,7 +23,7 @@ function clickLog(e) {
     if (clickBGColor === targetBGColor) {
         // hitCount++
         console.log("hit");
-        document.getElementById("count").innerText = hitCount.hit++;
+        document.getElementById("count").innerText = "Score: " + hitCount.hit++;
     } else {
         console.log("miss");
     }
@@ -38,12 +38,16 @@ divClick.forEach((btn) => {
 let butStart = document.querySelectorAll("#start");
 
 butStart.forEach((btn) => {
-    btn.addEventListener("click", highlightDiv);
+    btn.addEventListener("click", playGame);
 });
 
 let divMole = document.getElementsByTagName("div");
 
 let clock = document.getElementById("clock");
+let timer = 10;
+clock.innerText = timer;
+
+//one random box, higlight, move on
 
 function highlightDiv() {
     let randomDiv = divMole[Math.floor(Math.random() * divMole.length)];
@@ -51,12 +55,22 @@ function highlightDiv() {
     setTimeout(() => {
         randomDiv.className = "";
         setTimeout(highlightDiv, 500);
-    }, 500);
+    }, 1000);
 }
-let timer = 10;
-clock.innerText = timer;
-let timeRef = setInterval(() => {
-    timer--;
-    clock.innerText = timer;
-    clearInterval(timeRef);
-}, 1000);
+
+function timerCount() {
+    let timeRef = setInterval(() => {
+        timer--;
+        clock.innerText = timer;
+    }, 1000);
+
+    setTimeout(() => {
+        clearInterval(timeRef);
+    }, timer * 1000);
+}
+
+//run both functions
+function playGame() {
+    highlightDiv();
+    timerCount();
+}
