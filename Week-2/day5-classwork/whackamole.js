@@ -20,19 +20,29 @@ let gameActive = false;
 
 let butStart = document.querySelectorAll("#start");
 
-let difRad = document.querySelectorAll("input");
-
 function playGame() {
-    difValue = difRad.value;
-    console.log(difValue);
     if (gameActive === false) {
         gameActive = true;
-        //primary
-        highlightDiv();
-        //delay
-        setTimeout(() => {
+
+        //easy
+        if (document.getElementById("easy").) {
             highlightDiv();
-        }, 500);
+        } else if (document.getElementById("medium").) {
+            highlightDiv();
+            setTimeout(() => {
+                highlightDiv();
+            }, 500);
+        } else if (document.getElementById("hard").) {
+            highlightDiv();
+            setTimeout(() => {
+                highlightDiv();
+            }, 333);
+
+            setTimeout(() => {
+                highlightDiv();
+            }, 666);
+        }
+
         //game time
         timerCount();
         setTimeout(() => {
