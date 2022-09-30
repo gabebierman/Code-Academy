@@ -17,28 +17,28 @@
 const hitCount = { hit: 1 };
 
 function clickLog(e) {
-  let targetBGColor = "green";
-  let clickBGColor = e.target.className;
-  console.log(clickBGColor);
-  if (clickBGColor === targetBGColor) {
-    // hitCount++
-    console.log("hit");
-    document.getElementById("count").innerText = hitCount.hit++;
-  } else {
-    console.log("miss");
-  }
+    let targetBGColor = "green";
+    let clickBGColor = e.target.className;
+    console.log(clickBGColor);
+    if (clickBGColor === targetBGColor) {
+        // hitCount++
+        console.log("hit");
+        document.getElementById("count").innerText = hitCount.hit++;
+    } else {
+        console.log("miss");
+    }
 }
 
 let divClick = document.querySelectorAll("div");
 
 divClick.forEach((btn) => {
-  btn.addEventListener("click", clickLog);
+    btn.addEventListener("click", clickLog);
 });
 
 let butStart = document.querySelectorAll("#start");
 
 butStart.forEach((btn) => {
-  btn.addEventListener("click", highlightDiv);
+    btn.addEventListener("click", highlightDiv);
 });
 
 let divMole = document.getElementsByTagName("div");
@@ -46,17 +46,17 @@ let divMole = document.getElementsByTagName("div");
 let clock = document.getElementById("clock");
 
 function highlightDiv() {
-  let randomDiv = divMole[Math.floor(Math.random() * divMole.length)];
-  randomDiv.className = "green";
-  setTimeout(() => {
-    randomDiv.className = "";
-    setTimeout(highlightDiv, 500);
-  }, 500);
+    let randomDiv = divMole[Math.floor(Math.random() * divMole.length)];
+    randomDiv.className = "green";
+    setTimeout(() => {
+        randomDiv.className = "";
+        setTimeout(highlightDiv, 500);
+    }, 500);
 }
 let timer = 10;
 clock.innerText = timer;
 let timeRef = setInterval(() => {
-  timer--;
-  clock.innerText = timer;
-  clearInterval(timeRef);
+    timer--;
+    clock.innerText = timer;
+    clearInterval(timeRef);
 }, 1000);
