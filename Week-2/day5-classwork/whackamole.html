@@ -27,6 +27,7 @@
             }
             .green {
                 background-color: green;
+                /* background-image: url("mole.jpg"); */
             }
             .but-start {
                 flex-basis: calc(100% / 5);
@@ -35,8 +36,11 @@
                 padding: 5px;
                 cursor: pointer;
             }
-            .span-error {
-                color: red;
+            .bg-red {
+                background-color: red;
+            }
+            .bg-white {
+                background-color: white;
             }
         </style>
     </head>
@@ -51,7 +55,7 @@
                     value="easy"
                     name="difRad"
                 />
-                <label for="easy">easy</label>
+                <label for="easy">Easy</label>
             </div>
             <div class="div-radio">
                 <input
@@ -61,7 +65,7 @@
                     value="medium"
                     name="difRad"
                 />
-                <label for="medium">medium</label>
+                <label for="medium">Medium</label>
             </div>
             <div class="div-radio">
                 <input
@@ -71,37 +75,38 @@
                     value="hard"
                     name="difRad"
                 />
-                <label for="hard">hard</label>
+                <label for="hard">Hard</label>
             </div>
             <button class="but-start" id="start">Begin!</button>
             <span id="clock">Time remaining: 0</span>
         </main>
+        <main class="flex-container"></main>
         <main class="flex-container">
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
-            <div class="mole"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
+            <div class="mole bg-white"></div>
         </main>
         <script src="./whackamole.js"></script>
     </body>

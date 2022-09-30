@@ -10,7 +10,7 @@ let difTime;
 
 let butStart = document.querySelectorAll("#start");
 
-let divClick = document.querySelectorAll("div");
+let divClick = document.querySelectorAll(".mole");
 
 let divMole = document.getElementsByClassName("mole");
 
@@ -29,8 +29,6 @@ butStart.forEach((btn) => {
 function playGame() {
     if (gameActive === false) {
         gameActive = true;
-
-        //easy
         if (document.getElementById("easy").checked === true) {
             highlightDiv();
             difTime = 1000;
@@ -39,13 +37,12 @@ function playGame() {
             setTimeout(() => {
                 highlightDiv();
             }, 500);
-            difTime = 750;
+            difTime = 800;
         } else if (document.getElementById("hard").checked === true) {
             highlightDiv();
             setTimeout(() => {
                 highlightDiv();
             }, 333);
-
             setTimeout(() => {
                 highlightDiv();
             }, 666);
@@ -55,8 +52,6 @@ function playGame() {
                 "Please choose a difficulty";
             timer = 0;
         }
-
-        //game time
         timerCount();
         setTimeout(() => {
             clearInterval(timeRef);
@@ -72,13 +67,9 @@ function playGame() {
 function clickLog(e) {
     let targetBGColor = "green";
     let clickBGColor = e.target.className;
-    console.log(clickBGColor);
     if (clickBGColor === targetBGColor) {
-        // hitCount++
-        console.log("hit");
         document.getElementById("count").innerText = "Score: " + hitCount.hit++;
     } else {
-        console.log("miss");
     }
 }
 
@@ -86,7 +77,7 @@ function highlightDiv() {
     let randomDiv = divMole[Math.floor(Math.random() * divMole.length)];
     randomDiv.className = "green";
     setTimeout(() => {
-        randomDiv.className = "";
+        randomDiv.className = "bg-white";
         if (gameActive) {
             setTimeout(highlightDiv, 500);
         }
