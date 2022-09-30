@@ -16,6 +16,29 @@
 
 const hitCount = { hit: 1 };
 
+let gameActive = false;
+
+let butStart = document.querySelectorAll("#start");
+
+function playGame() {
+    if (gameActive === false) {
+        gameActive = true;
+        highlightDiv();
+        setTimeout(() => {
+            highlightDiv();
+        }, 500);
+        timerCount();
+        setTimeout(() => {
+            clearInterval(timeRef);
+            gameActive = false;
+            timer = 10;
+        }, timer * 1000);
+        document.getElementById("count").innerText = "Score: 0";
+        hitCount.hit = 1;
+        clock.innerText = timer;
+    }
+}
+
 function clickLog(e) {
     let targetBGColor = "green";
     let clickBGColor = e.target.className;
@@ -35,7 +58,7 @@ divClick.forEach((btn) => {
     btn.addEventListener("click", clickLog);
 });
 
-let butStart = document.querySelectorAll("#start");
+let timer = 10;
 
 butStart.forEach((btn) => {
     btn.addEventListener("click", playGame);
@@ -44,33 +67,31 @@ butStart.forEach((btn) => {
 let divMole = document.getElementsByTagName("div");
 
 let clock = document.getElementById("clock");
-let timer = 10;
+
 clock.innerText = timer;
 
 //one random box, higlight, move on
+
+let timeRef = 1000;
 
 function highlightDiv() {
     let randomDiv = divMole[Math.floor(Math.random() * divMole.length)];
     randomDiv.className = "green";
     setTimeout(() => {
         randomDiv.className = "";
-        setTimeout(highlightDiv, 500);
+        if (gameActive) {
+            setTimeout(highlightDiv, 500);
+        }
     }, 1000);
 }
 
+//set timer, increment, stop timer
 function timerCount() {
     let timeRef = setInterval(() => {
         timer--;
         clock.innerText = timer;
     }, 1000);
-
     setTimeout(() => {
         clearInterval(timeRef);
     }, timer * 1000);
-}
-
-//run both functions
-function playGame() {
-    highlightDiv();
-    timerCount();
 }
