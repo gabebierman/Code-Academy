@@ -20,19 +20,23 @@ let gameActive = false;
 
 let butStart = document.querySelectorAll("#start");
 
+let difTime;
+
 function playGame() {
     if (gameActive === false) {
         gameActive = true;
 
         //easy
-        if (document.getElementById("easy").) {
+        if (document.getElementById("easy").checked === true) {
             highlightDiv();
-        } else if (document.getElementById("medium").) {
+            difTime = 1000;
+        } else if (document.getElementById("medium").checked === true) {
             highlightDiv();
             setTimeout(() => {
                 highlightDiv();
             }, 500);
-        } else if (document.getElementById("hard").) {
+            difTime = 750;
+        } else if (document.getElementById("hard").checked === true) {
             highlightDiv();
             setTimeout(() => {
                 highlightDiv();
@@ -41,6 +45,7 @@ function playGame() {
             setTimeout(() => {
                 highlightDiv();
             }, 666);
+            difTime = 500;
         }
 
         //game time
@@ -99,7 +104,7 @@ function highlightDiv() {
         if (gameActive) {
             setTimeout(highlightDiv, 500);
         }
-    }, 1000);
+    }, difTime);
 }
 
 //set timer, increment, stop timer
