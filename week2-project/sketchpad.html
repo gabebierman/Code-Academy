@@ -8,6 +8,10 @@
         <style>
             * {
                 background-color: #95d9c3;
+                box-sizing: border-box;
+            }
+            .border {
+                border: 1px solid black;
             }
             .container-class {
                 width: 100%;
@@ -17,11 +21,9 @@
                 flex-flow: wrap;
                 justify-content: space-evenly;
                 padding-bottom: 5px;
-                border: 1px solid black;
                 flex-basis: auto;
             }
             .canvas {
-                border: 1px solid black;
                 background-color: whitesmoke;
                 min-height: 250px;
                 flex-basis: auto;
@@ -32,27 +34,38 @@
             .flexbasis75 {
                 flex-basis: 75%;
             }
+            .color-preset {
+                border-radius: 50%;
+                min-height: 100px;
+                flex-basis: 50%;
+                min-width: 100px;
+            }
         </style>
     </head>
     <body>
         <!-- main body -->
-        <div class="container-class">
+        <div class="border container-class">
             <!-- canvas -->
-            <main class="container-class">
-                <canvas class="canvas flexbasis75"></canvas>
+            <main class="border container-class">
+                <canvas class="border canvas flexbasis75"></canvas>
                 <!--color presets  -->
-                <aside class="container.class">
-                    <div class="flexbasis25">
-                        color preset left side
-                        <div>color 1</div>
-                        <div>color 2</div>
-                        <div>color 3</div>
-                    </div>
+                <aside class="border container.class">
+                    <div
+                        class="border color-preset"
+                        style="background-color: red"
+                    ></div>
+                    <div
+                        class="border color-preset"
+                        style="background-color: green"
+                    ></div>
+                    <div
+                        class="border color-preset"
+                        style="background-color: blue"
+                    ></div>
                 </aside>
             </main>
-
             <!-- color picker -->
-            <main class="container-class">
+            <main class="border container-class">
                 <div>
                     color picker below canvas
                     <div>color display</div>

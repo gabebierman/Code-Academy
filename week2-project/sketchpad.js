@@ -17,3 +17,5 @@
 //for use on the canvas.
 
 //- Feel free to add more functionality, such as a way to clear the canvas, change the stroke size, add a better cursor etc.
+
+//! pick color from preset - colorSelect(e) => e.target.backgroundColor
