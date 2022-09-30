@@ -20,13 +20,20 @@ let gameActive = false;
 
 let butStart = document.querySelectorAll("#start");
 
+let difRad = document.querySelectorAll("input");
+
 function playGame() {
+    difValue = difRad.value;
+    console.log(difValue);
     if (gameActive === false) {
         gameActive = true;
+        //primary
         highlightDiv();
+        //delay
         setTimeout(() => {
             highlightDiv();
         }, 500);
+        //game time
         timerCount();
         setTimeout(() => {
             clearInterval(timeRef);
