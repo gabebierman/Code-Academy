@@ -13,7 +13,7 @@ let strokeColor = "#000000";
 
 document.addEventListener("mousedown", start);
 document.addEventListener("mouseup", stop);
-window.addEventListener("resize", resize);
+document.addEventListener("resize", resize);
 
 resize();
 
@@ -26,11 +26,11 @@ function reposition(e) {
     coord.y = e.clientY - canvas.offsetTop;
 }
 function start(e) {
-    document.addEventListener("mousemove", draw);
+    canvas.addEventListener("mousemove", draw);
     reposition(e);
 }
 function stop() {
-    document.removeEventListener("mousemove", draw);
+    canvas.removeEventListener("mousemove", draw);
 }
 function draw(e) {
     canvasInfo.beginPath();
@@ -83,7 +83,7 @@ function selectColor(e) {
     greenOpt.style.border = null;
     blueOpt.style.border = null;
     colorDisplay.style.border = null;
-    //need to make if else statement for adding new color
+    //need to make if else statement for adding new color div
     e.target.style.border = "2px solid white";
 }
 
