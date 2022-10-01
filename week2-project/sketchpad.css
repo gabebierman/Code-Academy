@@ -70,3 +70,7 @@
 .slider:hover {
     opacity: 1;
 }
+
+div:focus {
+    border: 2px solid white;
+}

@@ -4,15 +4,10 @@
 //- On mouse down on the canvas, start drawing on the canvas until the user releases the mouse or leaves the canvas. The color of the line
 //should correspond to the selected color on the right.
 
-//When the sliders are moved, the color in the box to the left of the sliders (in this case the purplish box) should adjust color
-//according to the new `rgb()` values;
-
 //- When a user clicks add color, it should add the new color to the bottom of the other color buttons and be able to be selected
 //for use on the canvas.
 
 //- Feel free to add more functionality, such as a way to clear the canvas, change the stroke size, add a better cursor etc.
-
-//! pick color from preset - colorSelect(e) => e.target.backgroundColor
 
 const canvas = document.getElementById("canvas");
 const canvasInfo = canvas.getContext("2d");
@@ -80,8 +75,31 @@ blueSlide.addEventListener("input", setColor);
 
 //
 
-let redOpt = document.querySelectorAll("#redOpt");
-let blueOpt = document.querySelectorAll("#blueOpt");
-let greenOpt = document.querySelectorAll("#greenOpt");
+let redOpt = document.querySelector("#redOpt");
+let blueOpt = document.querySelector("#blueOpt");
+let greenOpt = document.querySelector("#greenOpt");
 
-// redOpt.addEventListener("click");
+function selectColor(e) {
+    let clickBGColor = e.target.style.backgroundColor;
+    strokeColor = clickBGColor;
+    // e.target.focus((e.target.style.border = "2px solid white"));
+    e.target.focus();
+}
+
+redOpt.addEventListener("click", selectColor);
+blueOpt.addEventListener("click", selectColor);
+greenOpt.addEventListener("click", selectColor);
+colorDisplay.addEventListener("click", selectColor);
+
+let colorOption = document.getElementsByClassName("color-option");
+
+colorOption.addEventListener("focus", boxBorder);
+colorOption.addEventListener("blur", boxBorder);
+
+function boxBorder() {
+    // if (focus) {
+    border = "2px solid white";
+    // } else {
+    //     border = "";
+    // }
+}
