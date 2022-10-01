@@ -4,8 +4,6 @@
 //- On mouse down on the canvas, start drawing on the canvas until the user releases the mouse or leaves the canvas. The color of the line
 //should correspond to the selected color on the right.
 
-//- At the bottom have three sliders representing red green and blue, they should allow for a numerical value from 0-255.
-
 //When the sliders are moved, the color in the box to the left of the sliders (in this case the purplish box) should adjust color
 //according to the new `rgb()` values;
 
@@ -16,14 +14,10 @@
 
 //! pick color from preset - colorSelect(e) => e.target.backgroundColor
 
-//! var slider = document.getElementById("myRange");
-//var output = document.getElementById("demo");
-//output.innerHTML = slider.value;
-//slider.oninput = function() {output.innerHTML = this.value;}
-
 const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext();
+const canvasInfo = canvas.getContext("2d");
 let coord = { x: 0, y: 0 };
+let strokeColor = "#000000";
 
 document.addEventListener("mousedown", start);
 document.addEventListener("mouseup", stop);
@@ -32,27 +26,106 @@ window.addEventListener("resize", resize);
 resize();
 
 function resize() {
-    ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
+    canvasInfo.canvas.width = window.innerWidth;
+    canvasInfo.canvas.height = window.innerHeight;
 }
-function reposition(event) {
-    coord.x = event.clientX - canvas.offsetLeft;
-    coord.y = event.clientY - canvas.offsetTop;
+function reposition(e) {
+    coord.x = e.clientX - canvas.offsetLeft;
+    coord.y = e.clientY - canvas.offsetTop;
 }
-function start(event) {
+function start(e) {
     document.addEventListener("mousemove", draw);
-    reposition(event);
+    reposition(e);
 }
 function stop() {
     document.removeEventListener("mousemove", draw);
 }
-function draw(event) {
-    ctx.beginPath();
-    ctx.lineWidth = 5;
-    ctx.lineCap = "round";
-    ctx.strokeStyle = "#ACD3ED";
-    ctx.moveTo(coord.x, coord.y);
-    reposition(event);
-    ctx.lineTo(coord.x, coord.y);
-    ctx.stroke();
+function draw(e) {
+    canvasInfo.beginPath();
+    canvasInfo.lineWidth = 5;
+    canvasInfo.lineCap = "round";
+    canvasInfo.strokeStyle = strokeColor;
+    canvasInfo.moveTo(coord.x, coord.y);
+    reposition(e);
+    canvasInfo.lineTo(coord.x, coord.y);
+    canvasInfo.stroke();
 }
+
+// let slider = document.getElementsByClassName("");
+// let output = document.getElementById("demo");
+// output.innerHTML = slider.value;
+// slider.oninput = function () {
+//     output.innerHTML = this.value;
+// };
+
+let red = document.querySelector("#slideRed");
+let green = document.querySelector("#slideGreen");
+let blue = document.querySelector("#slideBlue");
+let colorDisplay = document.getElementById("color");
+
+function setColor() {
+    var rHex = parseInt(red.value, 10).toString(16),
+        gHex = parseInt(green.value, 10).toString(16),
+        bHex = parseInt(blue.value, 10).toString(16),
+        hex = "#" + pad(rHex) + pad(gHex) + pad(bHex);
+    colorDisplay.style.backgroundColor = hex;
+    // hexOut.value = hex;
+}
+
+function pad(n) {
+    return n.length < 2 ? "0" + n : n;
+}
+
+red.addEventListener(
+    "change",
+    function () {
+        setColor();
+        // r_out.value = r.value;
+    },
+    false
+);
+
+red.addEventListener(
+    "input",
+    function () {
+        setColor();
+        // r_out.value = r.value;
+    },
+    false
+);
+
+green.addEventListener(
+    "change",
+    function () {
+        setColor();
+        // g_out.value = g.value;
+    },
+    false
+);
+
+green.addEventListener(
+    "input",
+    function () {
+        setColor();
+        // g_out.value = g.value;
+    },
+    false
+);
+
+blue.addEventListener(
+    "change",
+    function () {
+        setColor();
+        // b_out.value = b.value;
+    },
+    false
+);
+
+blue.addEventListener(
+    "input",
+    function () {
+        setColor();
+        // b_out.value = b.value;
+    },
+    false
+);

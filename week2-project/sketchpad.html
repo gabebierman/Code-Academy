@@ -12,7 +12,7 @@
         <div class="border container-class">
             <!-- canvas -->
             <main class="border container-class">
-                <canvas class="border canvas flexbasis75"></canvas>
+                <canvas class="border canvas flexbasis75" id="canvas"></canvas>
                 <!--color presets  -->
                 <aside class="border container.class">
                     <div
@@ -32,34 +32,36 @@
             <!-- color picker -->
             <main class="border color-pick-containers">
                 <div class="border flexbasis75 color-pick-containers">
-                    <div class="border flexbasis25">
-                        color display
-                        <div>color</div>
-                    </div>
+                    <div
+                        class="border flexbasis25"
+                        style="background-color: rgb(128, 128, 128)"
+                        id="color"
+                    ></div>
                     <div class="border slider-container flexbasis75">
                         <input
                             type="range"
-                            min="1"
-                            max="100"
-                            value="50"
+                            min="0"
+                            max="255"
+                            value="128"
                             class="slider"
-                            id="red"
+                            id="slideRed"
+                            style="background-color: red"
                         />
                         <input
                             type="range"
-                            min="1"
-                            max="100"
-                            value="50"
+                            min="0"
+                            max="255"
+                            value="128"
                             class="slider"
-                            id="green"
+                            id="slideGreen"
                         />
                         <input
                             type="range"
-                            min="1"
-                            max="100"
-                            value="50"
+                            min="0"
+                            max="255"
+                            value="128"
                             class="slider"
-                            id="blue"
+                            id="slideBlue"
                         />
                         <input type="text" placeholder="enter hxcode " />
                     </div>
