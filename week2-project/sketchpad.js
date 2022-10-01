@@ -51,29 +51,17 @@ function draw(e) {
     canvasInfo.stroke();
 }
 
-// let slider = document.getElementsByClassName("");
-// let output = document.getElementById("demo");
-// output.innerHTML = slider.value;
-// slider.oninput = function () {
-//     output.innerHTML = this.value;
-// };
-
 let red = document.querySelector("#slideRed");
 let green = document.querySelector("#slideGreen");
 let blue = document.querySelector("#slideBlue");
 let colorDisplay = document.getElementById("color");
 
 function setColor() {
-    var rHex = parseInt(red.value, 10).toString(16),
-        gHex = parseInt(green.value, 10).toString(16),
-        bHex = parseInt(blue.value, 10).toString(16),
-        hex = "#" + pad(rHex) + pad(gHex) + pad(bHex);
-    colorDisplay.style.backgroundColor = hex;
-    // hexOut.value = hex;
-}
-
-function pad(n) {
-    return n.length < 2 ? "0" + n : n;
+    let redVal = parseInt(red.value);
+    let greenVal = parseInt(green.value);
+    let blueVal = parseInt(blue.value);
+    rgbVal = `rgb(${redVal}, ${greenVal}, ${blueVal})`;
+    colorDisplay.style.backgroundColor = rgbVal;
 }
 
 red.addEventListener(
