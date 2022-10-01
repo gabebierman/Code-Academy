@@ -1,6 +1,3 @@
-//- Allow the user to select any of the three colors and use some form of CSS (in this case the white border around red) to show which
-//color is selected
-
 //- On mouse down on the canvas, start drawing on the canvas until the user releases the mouse or leaves the canvas. The color of the line
 //should correspond to the selected color on the right.
 
@@ -82,24 +79,15 @@ let greenOpt = document.querySelector("#greenOpt");
 function selectColor(e) {
     let clickBGColor = e.target.style.backgroundColor;
     strokeColor = clickBGColor;
-    // e.target.focus((e.target.style.border = "2px solid white"));
-    e.target.focus();
+    redOpt.style.border = null;
+    greenOpt.style.border = null;
+    blueOpt.style.border = null;
+    colorDisplay.style.border = null;
+    //need to make if else statement for adding new color
+    e.target.style.border = "2px solid white";
 }
 
 redOpt.addEventListener("click", selectColor);
 blueOpt.addEventListener("click", selectColor);
 greenOpt.addEventListener("click", selectColor);
 colorDisplay.addEventListener("click", selectColor);
-
-let colorOption = document.getElementsByClassName("color-option");
-
-colorOption.addEventListener("focus", boxBorder);
-colorOption.addEventListener("blur", boxBorder);
-
-function boxBorder() {
-    // if (focus) {
-    border = "2px solid white";
-    // } else {
-    //     border = "";
-    // }
-}
