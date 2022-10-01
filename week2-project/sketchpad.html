@@ -5,42 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <style>
-            * {
-                background-color: #95d9c3;
-                box-sizing: border-box;
-            }
-            .border {
-                border: 1px solid black;
-            }
-            .container-class {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex: auto;
-                flex-flow: wrap;
-                justify-content: space-evenly;
-                padding-bottom: 5px;
-                flex-basis: auto;
-            }
-            .canvas {
-                background-color: whitesmoke;
-                min-height: 250px;
-                flex-basis: auto;
-            }
-            .flexbasis25 {
-                flex-basis: 25%;
-            }
-            .flexbasis75 {
-                flex-basis: 75%;
-            }
-            .color-preset {
-                border-radius: 50%;
-                min-height: 100px;
-                flex-basis: 50%;
-                min-width: 100px;
-            }
-        </style>
+        <link rel="stylesheet" href="sketchpad.css" type="text/css" />
     </head>
     <body>
         <!-- main body -->
@@ -66,12 +31,17 @@
             </main>
             <!-- color picker -->
             <main class="border container-class">
-                <div>
-                    color picker below canvas
-                    <div>color display</div>
-                    <div>red slider</div>
-                    <div>green slider</div>
-                    <div>blue slider</div>
+                <div class="border flexbasis75 container-class">
+                    <div class="border">
+                        color display
+                        <div>color</div>
+                    </div>
+                    <div class="border">
+                        slider div
+                        <div>red slider</div>
+                        <div>green slider</div>
+                        <div>blue slider</div>
+                    </div>
                 </div>
             </main>
         </div>
