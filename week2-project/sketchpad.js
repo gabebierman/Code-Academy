@@ -51,69 +51,37 @@ function draw(e) {
     canvasInfo.stroke();
 }
 
-let red = document.querySelector("#slideRed");
-let green = document.querySelector("#slideGreen");
-let blue = document.querySelector("#slideBlue");
+//
+
+let redSlide = document.querySelector("#slideRed");
+let greenSlide = document.querySelector("#slideGreen");
+let blueSlide = document.querySelector("#slideBlue");
 let colorDisplay = document.getElementById("color");
 
 function setColor() {
-    let redVal = parseInt(red.value);
-    let greenVal = parseInt(green.value);
-    let blueVal = parseInt(blue.value);
+    let redVal = parseInt(redSlide.value);
+    let greenVal = parseInt(greenSlide.value);
+    let blueVal = parseInt(blueSlide.value);
     rgbVal = `rgb(${redVal}, ${greenVal}, ${blueVal})`;
     colorDisplay.style.backgroundColor = rgbVal;
 }
 
-red.addEventListener(
-    "change",
-    function () {
-        setColor();
-        // r_out.value = r.value;
-    },
-    false
-);
+redSlide.addEventListener("change", setColor);
 
-red.addEventListener(
-    "input",
-    function () {
-        setColor();
-        // r_out.value = r.value;
-    },
-    false
-);
+redSlide.addEventListener("input", setColor);
 
-green.addEventListener(
-    "change",
-    function () {
-        setColor();
-        // g_out.value = g.value;
-    },
-    false
-);
+greenSlide.addEventListener("change", setColor);
 
-green.addEventListener(
-    "input",
-    function () {
-        setColor();
-        // g_out.value = g.value;
-    },
-    false
-);
+greenSlide.addEventListener("input", setColor);
 
-blue.addEventListener(
-    "change",
-    function () {
-        setColor();
-        // b_out.value = b.value;
-    },
-    false
-);
+blueSlide.addEventListener("change", setColor);
 
-blue.addEventListener(
-    "input",
-    function () {
-        setColor();
-        // b_out.value = b.value;
-    },
-    false
-);
+blueSlide.addEventListener("input", setColor);
+
+//
+
+let redOpt = document.querySelectorAll("#redOpt");
+let blueOpt = document.querySelectorAll("#blueOpt");
+let greenOpt = document.querySelectorAll("#greenOpt");
+
+// redOpt.addEventListener("click");
