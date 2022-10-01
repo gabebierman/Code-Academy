@@ -30,17 +30,38 @@
                 </aside>
             </main>
             <!-- color picker -->
-            <main class="border container-class">
-                <div class="border flexbasis75 container-class">
-                    <div class="border">
+            <main class="border color-pick-containers">
+                <div class="border flexbasis75 color-pick-containers">
+                    <div class="border flexbasis25">
                         color display
                         <div>color</div>
                     </div>
-                    <div class="border">
-                        slider div
-                        <div>red slider</div>
-                        <div>green slider</div>
-                        <div>blue slider</div>
+                    <div class="border slider-container flexbasis75">
+                        <input
+                            type="range"
+                            min="1"
+                            max="100"
+                            value="50"
+                            class="slider"
+                            id="red"
+                        />
+                        <input
+                            type="range"
+                            min="1"
+                            max="100"
+                            value="50"
+                            class="slider"
+                            id="green"
+                        />
+                        <input
+                            type="range"
+                            min="1"
+                            max="100"
+                            value="50"
+                            class="slider"
+                            id="blue"
+                        />
+                        <input type="text" placeholder="enter hxcode " />
                     </div>
                 </div>
             </main>
