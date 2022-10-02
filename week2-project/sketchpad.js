@@ -75,6 +75,7 @@ blueSlide.addEventListener("input", setColor);
 let redOpt = document.querySelector("#redOpt");
 let blueOpt = document.querySelector("#blueOpt");
 let greenOpt = document.querySelector("#greenOpt");
+// let customOpt = document.querySelectorAll("#customOpt");
 
 function selectColor(e) {
     let clickBGColor = e.target.style.backgroundColor;
@@ -82,6 +83,7 @@ function selectColor(e) {
     redOpt.style.border = null;
     greenOpt.style.border = null;
     blueOpt.style.border = null;
+    customOpt.style.border = null;
     colorDisplay.style.border = null;
     //need to make if else statement for adding new color div
     e.target.style.border = "2px solid white";
@@ -90,4 +92,16 @@ function selectColor(e) {
 redOpt.addEventListener("click", selectColor);
 blueOpt.addEventListener("click", selectColor);
 greenOpt.addEventListener("click", selectColor);
+customOpt.addEventListener("click", selectColor);
 colorDisplay.addEventListener("click", selectColor);
+
+let addColor = document.getElementById("addColor");
+
+function newColor(e) {
+    let clickBGColor = colorDisplay.style.backgroundColor;
+    console.log(clickBGColor);
+    strokeColor = clickBGColor;
+    customOpt.style.backgroundColor = `${strokeColor}`;
+}
+
+addColor.addEventListener("click", newColor);

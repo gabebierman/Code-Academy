@@ -30,6 +30,11 @@
                         style="background-color: blue"
                         id="blueOpt"
                     ></div>
+                    <div
+                        class="color-preset color-option"
+                        style="background-color: auto"
+                        id="customOpt"
+                    ></div>
                 </aside>
             </main>
             <!-- color picker -->
@@ -40,6 +45,7 @@
                         style="background-color: rgb(128, 128, 128)"
                         id="color"
                     ></div>
+
                     <div class="color-preset slider-container flexbasis75">
                         <input
                             type="range"
@@ -66,10 +72,11 @@
                             class="slider"
                             id="slideBlue"
                         />
-                        <input type="text" placeholder="enter hxcode " />
+                        <!-- <input type="text" placeholder="enter hxcode " /> -->
                     </div>
                 </div>
             </main>
+            <button id="addColor">add color</button>
         </div>
         <!-- end body start script -->
         <script src="./sketchpad.js"></script>
