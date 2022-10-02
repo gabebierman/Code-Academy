@@ -1,15 +1,8 @@
-//- On mouse down on the canvas, start drawing on the canvas until the user releases the mouse or leaves the canvas. The color of the line
-//should correspond to the selected color on the right.
-
-//- When a user clicks add color, it should add the new color to the bottom of the other color buttons and be able to be selected
-//for use on the canvas.
-
-//- Feel free to add more functionality, such as a way to clear the canvas, change the stroke size, add a better cursor etc.
-
 const canvas = document.getElementById("canvas");
 const canvasInfo = canvas.getContext("2d");
 let coord = { x: 0, y: 0 };
 let strokeColor = "#000000";
+let canvasCont = document.getElementById("canvasCont");
 
 document.addEventListener("mousedown", start);
 document.addEventListener("mouseup", stop);
@@ -96,12 +89,14 @@ customOpt.addEventListener("click", selectColor);
 colorDisplay.addEventListener("click", selectColor);
 
 let addColor = document.getElementById("addColor");
+addColor.addEventListener("click", newColor);
 
-function newColor(e) {
+function newColor() {
     let clickBGColor = colorDisplay.style.backgroundColor;
     console.log(clickBGColor);
     strokeColor = clickBGColor;
     customOpt.style.backgroundColor = `${strokeColor}`;
 }
 
-addColor.addEventListener("click", newColor);
+let clear = document.getElementById("clear");
+clear.addEventListener("click", resize);
