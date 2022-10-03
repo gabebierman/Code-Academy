@@ -51,7 +51,7 @@
 // while (coin !== 0){
 //     coin = Math.floor(Math.random() * 2)
 //     counter++;
-    // console.log(`trying again`)
+// console.log(`trying again`)
 // }
 // console.log(counter)
 
@@ -64,7 +64,6 @@
 //!  - Log every number before theirs and every number from 100 counting down to theirs in two separate loops.
 //!  - If their name is your name send an alert saying that it is a great name
 //!  - Log their name in reverse to the console.
-
 
 // parseInt(promtp())
 // if else for odd even
@@ -113,7 +112,6 @@
 //     console.log("I like your name")
 // }
 
-
 //? if (userName.length <= 2){
 //?     const revArray = [];
 //?     const length = str.length - 1;
@@ -124,39 +122,35 @@
 //?     console.log(revArray)
 //? }
 
-// console.log(userName.split("").recerse().join(""));
-
-
-
-
-
+// console.log(userName.split("").reverse().join(""));
 
 // -----------------------------------------------------------------
 //! Take the following arrays: `[-1,-2,2,10,7,8]` and `[4,-2,2,7,9,5]`
 //! and see how many items the two arrays share in common.
 //! Do this without prototypical functions. This will also require the use of loop(s)
 
-
 // counter when array number matches increase
 // nested for loop (0 of array one 0-end of array two , 1 of array one 0-end of array two , etc )
 
-
-
-let a1 = [-1,-2,2,10,7,8];
-let a2 = [4,-2,2,7,9,5,-2];
+let a1 = [-1, -2, 2, 10, 7, 8];
+let a2 = [4, -2, 2, 7, 9, 5, -2];
 let inCom = 0;
 
 for (let i = 0; i < a1.length; i++) {
     for (let j = 0; j < a2.length; j++) {
-        console.log(a1[i] , a2[j])
-      if (a1[i] === a2[j]) {
-        inCom++;
-        console.log('Both arrays have the number ' + a2[j] + '.' + ` That's ${inCom} numbers so far!`);
-        break;
-      }
+        console.log(a1[i], a2[j]);
+        if (a1[i] === a2[j]) {
+            inCom++;
+            console.log(
+                "Both arrays have the number " +
+                    a2[j] +
+                    "." +
+                    ` That's ${inCom} numbers so far!`
+            );
+            break;
+        }
     }
 }
-
 
 // -----------------------------------------------------------------
 //!! Practice with the differences between `==` and `===`

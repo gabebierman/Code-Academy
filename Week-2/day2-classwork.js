@@ -4,7 +4,7 @@
 //! Pass a number into a function that will return the absolute value of that number
 //! (absolute value of -1 is 1 and abs of 1 is 1) without the use of built in math functions.
 
-// const absoluteValue = (int) => (int < 0) ? (0-int) : (int) ; 
+// const absoluteValue = (int) => (int < 0) ? (0-int) : (int) ;
 
 // function abValue(int){
 //     if (int < 0) {
@@ -30,18 +30,16 @@
 //! Write a function that checks to see if the word as an argument is a palindrome (case insensitive)
 //! and log the result to the console.
 
-//? take input, convert to all lowercase, 
+//? take input, convert to all lowercase,
 
 const nascar = (word) => {
     const reverseWord = word.split("").reverse().join("");
     if (reverseWord.toLowerCase() === word.toLowerCase()) {
         console.log("true");
-    } else{
+    } else {
         console.log("not");
     }
 };
-
-
 
 // -----------------------------------------------------------------
 //! Write a function that accepts an array of banned words and an array of words.
@@ -53,7 +51,7 @@ const nascar = (word) => {
 
 // const redacted = (toCensor, banned) => {
 //     for(let i = 0 ; i < toCensor.length ; i++){
-//         for(let j = 0 ; j < banned.length ; j++){   
+//         for(let j = 0 ; j < banned.length ; j++){
 //             if(toCensor[i] === banned[j]){
 //                 toCensor[i] = "REDACTED";
 //                 }
@@ -73,32 +71,26 @@ const nascar = (word) => {
 //! if b < a count down otherwise count up
 
 //? function name(a,b){}
-//? i = a j = b while i !== j 
+//? i = a j = b while i !== j
 
-
-
-
-function fizzBuzz(a,b){
-    function fbLogger(num){
-        if(num % 3 === 0 && num % 2 === 0) {
+function fizzBuzz(a, b) {
+    function fbLogger(num) {
+        if (num % 3 === 0 && num % 2 === 0) {
             console.log("FizzBuzz");
-        }
-        else if(num % 2 === 0 ) {
+        } else if (num % 2 === 0) {
             console.log("Fizz");
-        }
-        else if(num % 3 === 0) {
+        } else if (num % 3 === 0) {
             console.log("Buzz");
-        }
-        else{
+        } else {
             console.log(num);
         }
-    }    
-if(b < a){
-        for(let i = a; i >= b ; i--){
+    }
+    if (b < a) {
+        for (let i = a; i >= b; i--) {
             fbLogger(i);
         }
-    } else if(b > a){
-        for(let i = b; i <= b ; i++){
+    } else if (b > a) {
+        for (let i = b; i <= b; i++) {
             fbLogger(i);
         }
     }
@@ -111,32 +103,31 @@ if(b < a){
 //! Write a function that takes a day month and year (in whatever format you choose)
 //! and return what day that was. Try doing this both WITH and WITHOUT the use of built in libraries..
 
-const weekday = ["Sun" , "Mon" , "Tue" , "Wed" , "Thur" , "Fri" , "Sat"]
+const weekday = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
-function findDay(date){
+function findDay(date) {
     //take date input and plug into next phrase
     let d = new Date(date);
     // console.log(d)
     d = weekday[d.getDay()];
-    console.log(d)
+    console.log(d);
 }
 
-findDay(06251995)
+findDay(06251995);
 // -----------------------------------------------------------------
 //! Write a function to see if a pizza can be split evenly amongst a group of people.
 //! The function should take two arguments: the number of people present, and the number of slices of the pizza.
 //!   - If it can be split evenly log the result
 //!   - If it cannot, say it cannot be split evenly and ALSO list how many people will go without an extra slice.
 
-function thatsEnoughSlices(people, slices){
-    if(slices % people !== 0){
+function thatsEnoughSlices(people, slices) {
+    if (slices % people !== 0) {
         // console.log("running if")
-        let split = people - (people - slices)
-        console.log(split + " People will go without an extra slice")
-    }
-    else{
-        let split = (slices / people)
-        console.log("Each person gets " + split + " slice(s)")
+        let split = people - (people - slices);
+        console.log(split + " People will go without an extra slice");
+    } else {
+        let split = slices / people;
+        console.log("Each person gets " + split + " slice(s)");
         // console.log("even split")
     }
 }
@@ -154,15 +145,16 @@ function thatsEnoughSlices(people, slices){
 //     } else{
 //         console.log("not right tirangle")
 //     }
-    
+
 // }
 
-const pythag = (a,b,c) => ((a*a) + (b*b) === (c*c)) ? console.log("right") : console.log("not right")
+const pythag = (a, b, c) =>
+    a * a + b * b === c * c ? console.log("right") : console.log("not right");
 
-pythag(2,2,4)
-pythag(2,2,3)
-pythag(1,2,3)
-pythag(2,2,4)
+pythag(2, 2, 4);
+pythag(2, 2, 3);
+pythag(1, 2, 3);
+pythag(2, 2, 4);
 
 // -----------------------------------------------------------------
 //! Write a function to check to see if a warrior can beat all of the monsters in a dungeon.
@@ -180,8 +172,8 @@ pythag(2,2,4)
 // loop to add damage
 // funciton itself
 
-let a1 = [1, 3, 9, 10, 17]
-let a2 = [1, 5, 1, 1, 1,]
+let a1 = [1, 3, 9, 10, 17];
+let a2 = [1, 5, 1, 1, 1];
 
 // function health(damage, hp){
 //     let totalDmg = 0;
@@ -198,12 +190,11 @@ let a2 = [1, 5, 1, 1, 1,]
 
 // let totalDmg = damage.reduce((acc, val) => acc + val, 0)
 
-function health2(damage, hp){
-    if((damage.reduce((acc, val) => acc + val, 0)) >= hp){
-        console.log("die")
-    }
-    else{
-        console.log("survive")
+function health2(damage, hp) {
+    if (damage.reduce((acc, val) => acc + val, 0) >= hp) {
+        console.log("die");
+    } else {
+        console.log("survive");
     }
 }
 
@@ -213,7 +204,6 @@ function health2(damage, hp){
 // -----------------------------------------------------------------
 //! BONUS:
 //! Use recursion for function 2
-
 
 // const nascar = (word) => {
 //     const reverseWord = word.split("").reverse().join("");
@@ -228,20 +218,18 @@ function fibonacciRecursive(num) {
     if (num <= 1) return 1;
 
     return fibonacciRecursive(num - 1) + fibonacciRecursive(num - 2);
-  }
+}
 
-  function palindromeRecursion(word){
+function palindromeRecursion(word) {
     if (word.charAt(0) == word.charAt(word.length - 1)) {
         return palindromeRecursion();
     }
-
 }
 
+const pal = (word) =>
+    word.split("").reverse().join("") === word ? true : false;
 
-const pal = (word) => word.split("").reverse().join("") === word ? true : false
-
-palindromeRecursion("hello")
-
+palindromeRecursion("hello");
 
 //! EXTRA BONUS:
 // -----------------------------------------------------------------
@@ -249,3 +237,12 @@ palindromeRecursion("hello")
 //! - The function should return a closure that when called will increment the counter variable by 1
 //!   and log it to the console.
 //! - Assign the function to a variable named counterLog to be able to test it.
+
+const palindrome = (word) => {
+    const reverseWord = word.split("").reverse().join("");
+    if (reverseWord.replace().toLowerCase() === word.replace().toLowerCase()) {
+        return true;
+    } else {
+        return false;
+    }
+};
