@@ -82,6 +82,24 @@
                 "torbie",
                 "all"
             );
+
+            // Take these arrays [1,10,5] and [6,2,8] and combine them using spread syntax.
+
+            let arr1 = [1, 10, 5];
+            let arr2 = [6, 2, 8];
+            let arrCombo = [...arr1, ...arr2];
+
+            // Make a shallow copy of the array and save it into a new variable.
+
+            let arrCopy = [...arrCombo];
+
+            // Using arrow functions, sort the newly copied array to appear in numerical order.
+
+            arrCopy.sort((a, b) => a - b);
+
+            // Log both the original array and the sorted array to the console to make sure they appear correctly..
+
+            console.log(arrCombo, arrCopy);
         </script>
     </body>
 </html>
