@@ -7,6 +7,52 @@
         <title>Document</title>
     </head>
     <body>
-        <script></script>
+        <script>
+            //animal class
+            class Animal {
+                constructor(name, weight, skinType, habitat, diet) {
+                    this.name = name;
+                    this.weight = weight;
+                    this.skinType = skinType;
+                    this.habitat = habitat;
+                    this.diet = diet;
+                }
+                makeNoise(noise) {
+                    console.log(`the ${this.name} makes this noise: ${noise}`);
+                }
+            }
+            class Cat extends Animal {
+                constructor(name, weight, habitat, furPattern, foodPref) {
+                    super(name, weight, "fur", habitat, "carnivor");
+                }
+                makeNoise() {
+                    super.makeNoise("meow");
+                }
+            }
+            class Snake extends Animal {
+                constructor(name, weight, habitat, isVenomous, eyeShape) {
+                    super(name, weight, "scaled", "carnivore", habitat);
+                    this.isVenomous = isVenomous;
+                    this.eyeShape = eyeShape;
+                    // this.noise = "hiss";
+                }
+                makeNoise(noise) {
+                    super.makeNoise("hiss");
+                }
+            }
+            //name, weight, skinType, habitat, di
+            class VenomousSnake extends Snake {
+                constructor(name, weight, habitat, venomType) {
+                    super(name, weight, habitat, true, "slit", venomType);
+                    this.venomType = venomType;
+                }
+            }
+            class NonVenomousSnake extends Snake {
+                constructor(name, weight, habitat, fangType) {
+                    super(name, weight, habitat, false, "round", fangType);
+                    this.fangType = fangType;
+                }
+            }
+        </script>
     </body>
 </html>
