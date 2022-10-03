@@ -21,17 +21,10 @@
                     console.log(`the ${this.name} makes this noise: ${noise}`);
                 }
             }
-            class Cat extends Animal {
-                constructor(name, weight, habitat, furPattern, foodPref) {
-                    super(name, weight, "fur", habitat, "carnivor");
-                }
-                makeNoise() {
-                    super.makeNoise("meow");
-                }
-            }
+
             class Snake extends Animal {
                 constructor(name, weight, habitat, isVenomous, eyeShape) {
-                    super(name, weight, "scaled", "carnivore", habitat);
+                    super(name, weight, "scaled", habitat, "carnivore");
                     this.isVenomous = isVenomous;
                     this.eyeShape = eyeShape;
                     // this.noise = "hiss";
@@ -53,6 +46,42 @@
                     this.fangType = fangType;
                 }
             }
+            //name, weight, skinType, habitat, diet
+            class Cat extends Animal {
+                constructor(name, weight, habitat, furPattern) {
+                    super(name, weight, "fur", habitat, "carnivore");
+                    this.furPattern = furPattern;
+                }
+                makeNoise() {
+                    super.makeNoise("meow");
+                }
+            }
+            class IndoorCat extends Cat {
+                constructor(name, weight, furPattern, foodPref) {
+                    super(name, weight, "indoor", furPattern, foodPref);
+                    this.foodPref = foodPref;
+                }
+            }
+            class OutdoorCat extends Cat {
+                constructor(name, weight, furPattern, insideAtAll) {
+                    super(name, weight, "outdoor", furPattern, insideAtAll);
+                    this.insideAtAll = insideAtAll;
+                }
+            }
+
+            let outdoor = new OutdoorCat(
+                "Sal",
+                "frail",
+                "tabby",
+                "to hide from other cats"
+            );
+
+            let indoor = new IndoorCat(
+                "tiny baby",
+                "very small",
+                "torbie",
+                "all"
+            );
         </script>
     </body>
 </html>
