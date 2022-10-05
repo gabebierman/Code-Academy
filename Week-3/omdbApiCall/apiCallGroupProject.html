@@ -7,15 +7,29 @@
         <title>Document</title>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
-    <body>
-        <input type="text" placeholder="Title" id="title" />
-        <input type="text" placeholder="Year" id="year" />
-        <select name="type" id="type">
-            <option value="movie">Movie</option>
-            <option value="series">Series</option>
-            <option value="game">Game</option>
-        </select>
-        <button id="search">Search</button>
+    <style>
+        .mainPage {
+            display: flex;
+            align-items: center;
+            align-content: space-between;
+            flex-basis: 100%;
+        }
+    </style>
+    <body class="mainPage" style="flex-direction: column; width: 100%">
+        <div class="mainPage">
+            <h1>OMDB API Pull</h1>
+        </div>
+        <div class="mainPage">
+            <input type="text" placeholder="Title" id="title" />
+            <input type="text" placeholder="Year" id="year" />
+            <select name="type" id="type">
+                <option value="movie">Movie</option>
+                <option value="series">Series</option>
+                <option value="game">Game</option>
+            </select>
+            <button id="search">Search</button>
+        </div>
+
         <main></main>
 
         <script>
@@ -43,18 +57,22 @@
                                 main.appendChild(errorMsg);
                                 errorMsg.innerText = data.Error;
                             } else {
+                                console.log(response.data);
                                 let totalResult = data.totalResults;
                                 let totalReturn = data.Search.length;
                                 let howMany = document.createElement("h3");
                                 main.appendChild(howMany);
                                 howMany.innerText = `The total number of results is ${totalResult}. You are vewing the top ${totalReturn} results.`;
                                 data.Search.forEach((e) => {
+                                    let i = data.Search;
                                     let title = e.Title;
                                     let year = e.Year;
                                     let info = document.createElement("p");
-
+                                    let image = document.createElement("img");
+                                    image.src = e.Poster;
                                     main.appendChild(info);
-                                    info.innerText = `${title} ${year}`;
+                                    main.appendChild(image);
+                                    info.innerText = `${title} \n Released: ${year}`;
                                 });
                             }
                         } catch (error) {
