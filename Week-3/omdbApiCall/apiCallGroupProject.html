@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+
+    done
+    <!-- Sign up for a personal API key from OMDBAPi -->
+    <!-- Utilize the information on the page to see what kind of format a request needs to be made in to return correct information. -->
+    <!-- Create a simple search box that allows for the user to search for a movie. They should be able to enter ANY of the following information but a search field is required for you to send a request to the API: -->
+    <!-- Search Field - Do not allow for an API call without at least 3 characters in this field -->
+    <!-- Type (Make a select box for this) -->
+    <!-- Year - Your choice of input type -->
+    <!-- If an error occurred, let the user know. Otherwise display the data to the page. -->
+    <!-- Since only 10 items are returned, figure out how many items WOULD have been sent and let the user know. -->
+
+    <body>
+        <!-- Come up with layout Come up with breakpoints Build form elements /
+        containers / etc Event listener to submit button to do the things Count
+        amount of letters they input and do appropriate action -->
+        <script>
+            //! Read API Documentation to see what format you will get a response in / what you need to send
+            //! Fetch data from the API
+            //! Display error message to DOM if something went wrong
+            //! Use data to display to DOM
+            document.getElementById("").addEventListener("click", async () => {
+                try {
+                    const response = await axios.get(
+                        "http://www.omdbapi.com/?apikey=26718b5b"
+                    );
+                    console.log("Full response: ", response);
+                    console.log("Data:", response.data);
+                } catch (error) {
+                    console.error(error);
+                }
+            });
+        </script>
+    </body>
+</html>
