@@ -10,16 +10,29 @@
     <style>
         .mainPage {
             display: flex;
+            flex-direction: column;
+            align-content: space-around;
             align-items: center;
+        }
+        .results-box {
+            display: flex;
+            flex-wrap: wrap;
             align-content: space-between;
-            flex-basis: 100%;
+            align-items: center;
+        }
+        .result-entry {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 40%;
+            align-content: space-between;
+            align-items: center;
         }
     </style>
-    <body class="mainPage" style="flex-direction: column; width: 100%">
-        <div class="mainPage">
+    <body class="mainPage">
+        <div class="">
             <h1>OMDB API Pull</h1>
         </div>
-        <div class="mainPage">
+        <div class="">
             <input type="text" placeholder="Title" id="title" />
             <input type="text" placeholder="Year" id="year" />
             <select name="type" id="type">
@@ -30,7 +43,7 @@
             <button id="search">Search</button>
         </div>
 
-        <main></main>
+        <main class="results-box"></main>
 
         <script>
             document
@@ -60,13 +73,17 @@
                                 console.log(response.data);
                                 let howMany = document.createElement("h3");
                                 main.appendChild(howMany);
+                                howMany.style.flexBasis = "100%";
                                 howMany.innerText = `The total number of results is ${data.totalResults}. You are vewing the top ${data.Search.length} results.`;
                                 data.Search.forEach((e) => {
                                     let info = document.createElement("p");
                                     let image = document.createElement("img");
+                                    let result = document.createElement("div");
                                     image.src = e.Poster;
-                                    main.appendChild(info);
-                                    main.appendChild(image);
+                                    main.appendChild(result);
+                                    result.classList.add("result-entry");
+                                    result.appendChild(info);
+                                    result.appendChild(image);
                                     info.innerText = `${e.Title} \n Released: ${e.Year}`;
                                 });
                             }
