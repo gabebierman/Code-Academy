@@ -7,15 +7,7 @@
         <title>Document</title>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
-
-    <!-- Utilize the information on the page to see what kind of format a request needs to be made in to return correct information. -->
-    <!-- If an error occurred, let the user know. Otherwise display the data to the page. -->
-    <!-- Since only 10 items are returned, figure out how many items WOULD have been sent and let the user know. -->
-
     <body>
-        <!-- Come up with layout Come up with breakpoints Build form elements /
-        containers / etc Event listener to submit button to do the things Count
-        amount of letters they input and do appropriate action -->
         <input type="text" placeholder="Title" id="title" />
         <input type="text" placeholder="Year" id="year" />
         <select name="type" id="type">
@@ -27,37 +19,32 @@
         <main></main>
 
         <script>
-            //! Read API Documentation to see what format you will get a response in / what you need to send
-            //! Display error message to DOM if something went wrong
-            //! Use data to display to DOM
-            //
             document
                 .getElementById("search")
                 .addEventListener("click", async () => {
+                    let main = document.querySelector("main");
+                    main.innerText = "";
                     let select = document.getElementById("type");
                     let type = select.options[select.selectedIndex].value;
                     let year = document.getElementById("year").value;
                     let title = document.getElementById("title").value;
                     if (title.length < 3) {
-                        console.log("title to short");
+                        tooShort = document.createElement("h3");
+                        main.appendChild(tooShort);
+                        tooShort.innerText =
+                            "Please enter at least three (3) characters";
                     } else {
-                        // console.log(type, year, title);
                         let searchURL = `http://www.omdbapi.com/?apikey=26718b5b&type=${type}&y=${year}&s=${title}`;
-                        // console.log(searchURL);
                         try {
                             const response = await axios.get(searchURL);
-                            console.log(response.data);
                             const data = response.data;
                             if (data.Response !== "True") {
-                                console.log(data.Error);
+                                let errorMsg = document.createElement("h3");
+                                main.appendChild(errorMsg);
+                                errorMsg.innerText = data.Error;
                             } else {
-                                // console.log("here we go..");
-                                // console.log(
-                                //     `Total Result: ${data.totalResults}`
-                                // );
                                 let totalResult = data.totalResults;
                                 let totalReturn = data.Search.length;
-                                let main = document.querySelector("main");
                                 let howMany = document.createElement("h3");
                                 main.appendChild(howMany);
                                 howMany.innerText = `The total number of results is ${totalResult}. You are vewing the top ${totalReturn} results.`;
