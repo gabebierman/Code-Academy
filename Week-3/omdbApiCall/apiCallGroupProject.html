@@ -58,21 +58,16 @@
                                 errorMsg.innerText = data.Error;
                             } else {
                                 console.log(response.data);
-                                let totalResult = data.totalResults;
-                                let totalReturn = data.Search.length;
                                 let howMany = document.createElement("h3");
                                 main.appendChild(howMany);
-                                howMany.innerText = `The total number of results is ${totalResult}. You are vewing the top ${totalReturn} results.`;
+                                howMany.innerText = `The total number of results is ${data.totalResults}. You are vewing the top ${data.Search.length} results.`;
                                 data.Search.forEach((e) => {
-                                    let i = data.Search;
-                                    let title = e.Title;
-                                    let year = e.Year;
                                     let info = document.createElement("p");
                                     let image = document.createElement("img");
                                     image.src = e.Poster;
                                     main.appendChild(info);
                                     main.appendChild(image);
-                                    info.innerText = `${title} \n Released: ${year}`;
+                                    info.innerText = `${e.Title} \n Released: ${e.Year}`;
                                 });
                             }
                         } catch (error) {
