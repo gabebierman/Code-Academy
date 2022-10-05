@@ -51,13 +51,21 @@
                             if (data.Response !== "True") {
                                 console.log(data.Error);
                             } else {
-                                console.log("here we go..");
-
+                                // console.log("here we go..");
+                                // console.log(
+                                //     `Total Result: ${data.totalResults}`
+                                // );
+                                let totalResult = data.totalResults;
+                                let totalReturn = data.Search.length;
+                                let main = document.querySelector("main");
+                                let howMany = document.createElement("h3");
+                                main.appendChild(howMany);
+                                howMany.innerText = `The total number of results is ${totalResult}. You are vewing the top ${totalReturn} results.`;
                                 data.Search.forEach((e) => {
                                     let title = e.Title;
                                     let year = e.Year;
                                     let info = document.createElement("p");
-                                    let main = document.querySelector("main");
+
                                     main.appendChild(info);
                                     info.innerText = `${title} ${year}`;
                                 });
