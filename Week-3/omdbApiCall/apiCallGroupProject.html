@@ -23,12 +23,11 @@
         amount of letters they input and do appropriate action -->
         <input type="text" placeholder="Title" id="title" />
         <input type="text" placeholder="Year" id="year" />
-        <input type="radio" name="type" value="movie" id="movie" />
-        <label for="movie">Movie</label>
-        <input type="radio" name="type" value="series" id="series" />
-        <label for="series">Series</label>
-        <input type="radio" name="type" value="game" id="game" />
-        <label for="game">Game</label>
+        <select name="type" id="type">
+            <option value="movie">Movie</option>
+            <option value="series">Series</option>
+            <option value="game">Game</option>
+        </select>
         <button id="search">Search</button>
 
         <script>
@@ -36,17 +35,24 @@
             //! Fetch data from the API
             //! Display error message to DOM if something went wrong
             //! Use data to display to DOM
-            document.getElementById("").addEventListener("click", async () => {
-                try {
-                    const response = await axios.get(
-                        "http://www.omdbapi.com/?apikey=26718b5b&type=&y&s="
-                    );
-                    console.log("Full response: ", response);
-                    console.log("Data:", response.data);
-                } catch (error) {
-                    console.error(error);
-                }
-            });
+            //
+            document
+                .getElementById("search")
+                .addEventListener("click", async () => {
+                    var select = document.getElementById("type");
+                    var type = select.options[select.selectedIndex].value;
+                    let year = document.getElementById("year").value;
+                    let title = document.getElementById("title").value;
+                    console.log(type, year, title);
+                    let searchURL = `http://www.omdbapi.com/?apikey=26718b5b&type=${type}&y=${year}&s=${title}`;
+                    console.log(searchURL);
+                    try {
+                        const response = await axios.get(searchURL);
+                        console.log("Data:", response.data);
+                    } catch (error) {
+                        console.error(error);
+                    }
+                });
         </script>
     </body>
 </html>
