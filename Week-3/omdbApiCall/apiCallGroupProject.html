@@ -8,7 +8,6 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
 
-    done
     <!-- Sign up for a personal API key from OMDBAPi -->
     <!-- Utilize the information on the page to see what kind of format a request needs to be made in to return correct information. -->
     <!-- Create a simple search box that allows for the user to search for a movie. They should be able to enter ANY of the following information but a search field is required for you to send a request to the API: -->
@@ -22,6 +21,16 @@
         <!-- Come up with layout Come up with breakpoints Build form elements /
         containers / etc Event listener to submit button to do the things Count
         amount of letters they input and do appropriate action -->
+        <input type="text" placeholder="Title" id="title" />
+        <input type="text" placeholder="Year" id="year" />
+        <input type="radio" name="type" value="movie" id="movie" />
+        <label for="movie">Movie</label>
+        <input type="radio" name="type" value="series" id="series" />
+        <label for="series">Series</label>
+        <input type="radio" name="type" value="game" id="game" />
+        <label for="game">Game</label>
+        <button id="search">Search</button>
+
         <script>
             //! Read API Documentation to see what format you will get a response in / what you need to send
             //! Fetch data from the API
@@ -30,7 +39,7 @@
             document.getElementById("").addEventListener("click", async () => {
                 try {
                     const response = await axios.get(
-                        "http://www.omdbapi.com/?apikey=26718b5b"
+                        "http://www.omdbapi.com/?apikey=26718b5b&type=&y&s="
                     );
                     console.log("Full response: ", response);
                     console.log("Data:", response.data);
