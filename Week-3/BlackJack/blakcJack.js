@@ -1,5 +1,5 @@
 // test button (tuns all functions listed on page)
-document.querySelector("button").addEventListener(
+document.getElementById("test").addEventListener(
     "click",
     (runAll = () => {
         initDeck();
@@ -27,8 +27,8 @@ const values = [
 ];
 
 let deck = [];
-let user = [];
-let comp = [];
+let userScore;
+let compScore;
 
 function initDeck() {
     deck = [];
@@ -62,49 +62,60 @@ function shuffleDeck() {
 //deal the hand
 
 function dealCards() {
-    let user1 = [deck.pop()];
-    let comp1 = [deck.pop()];
-    user = [...user1, deck.pop()];
-    comp = [...comp1, deck.pop()];
-    console.log(user);
-    console.log(comp);
+    userScore = deck.pop().weight;
+    compScore = deck.pop().weight;
+    userScore = userScore + deck.pop().weight;
+    compScore = compScore + deck.pop().weight;
+    console.log("user score " + userScore);
+    console.log("comp score " + compScore);
 }
 
 //computer
 function compPlay() {
-    let cardWeight = comp[0].weight + comp[1].weight;
-    console.log(cardWeight);
-    if (21 < cardWeight) {
+    console.log(compScore);
+    if (21 < compScore) {
         console.log("comp bust");
-    } else if (17 <= cardWeight && cardWeight <= 21) {
+    } else if (17 <= compScore && compScore <= 21) {
         console.log("comp stay");
     } else {
         let hit = deck.pop();
         console.log("comp hit");
-        hitWeight = cardWeight + hit.weight;
-        console.log(hitWeight);
-        if (17 <= hitWeight && hitWeight <= 21) {
+        compScore = compScore + hit.weight;
+        console.log(compScore);
+        if (17 <= compScore && compScore <= 21) {
             console.log("comp stay");
-        } else if (21 < hitWeight) {
+        } else if (21 < compScore) {
             console.log("comp bust");
         } else {
             console.log("comp hit");
-            hitWeight = hitWeight + deck.pop().weight;
-            console.log(hitWeight);
-            if (17 <= hitWeight && hitWeight <= 21) {
+            compScore = compScore + deck.pop().weight;
+            console.log(compScore);
+            if (17 <= compScore && compScore <= 21) {
                 console.log("comp stay");
-            } else if (21 < hitWeight) {
+            } else if (21 < compScore) {
                 console.log("comp bust");
             } else {
                 console.log("comp hit");
-                hitWeight = hitWeight + deck.pop().weight;
-                console.log(hitWeight);
+                compScore = compScore + deck.pop().weight;
+                console.log(compScore);
             }
         }
     }
 }
 
 //user player
+
+//hit
+document.getElementById("hit").addEventListener(
+    "click",
+    (dealSingle = () => {
+        userScore = userScore + deck.pop().weight;
+        console.log("user hit , new score " + userScore);
+    })
+);
+
+//stay
+document.getElementById("stay").addEventListener("click", compPlay);
 
 //start the game
 
