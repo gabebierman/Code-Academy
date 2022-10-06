@@ -1,0 +1,5 @@
+1. generate random genre from https://binaryjazz.us/genrenator-api/
+2. take genre string , split , and search through spotify api for each genre
+3. take each genre , pull top artist , embed top song from each artist
+4. plug into TasteDive / qloo and find songs / artists in common
+5. create embeded playlist with the results and allow for add to profile
