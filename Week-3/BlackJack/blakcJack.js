@@ -33,6 +33,8 @@ let userScore = 0;
 let userWin;
 let compWin;
 let discardCount = 0;
+let userHand;
+let compHand;
 
 //start game
 
@@ -163,10 +165,12 @@ const check21 = () => {
 const updateScore = () => {
     compScore = players[0].Points;
     userScore = players[1].Points;
-    document.getElementById(
-        "userScore"
-    ).innerText = `${players[1].Hand[0].value}  ${players[1].Hand[1].value}`;
+    userHand = players[1].Hand[0].value + players[1].Hand[1].value;
+    compHand = players[0].Hand[0].value + players[0].Hand[1].value;
+    document.getElementById("userScore").innerText = `${userScore}`;
     document.getElementById("compScore").innerText = `${compScore}`;
+    document.getElementById("userHand").innerText = `${userHand}`;
+    document.getElementById("compHand").innerText = `${compHand}`;
 };
 
 document.getElementById("11").addEventListener(
@@ -177,6 +181,7 @@ document.getElementById("11").addEventListener(
                 e.weight = 11;
             }
         });
+        getPoints();
     })
 );
 
@@ -185,10 +190,10 @@ document.getElementById("1").addEventListener(
     (ace = () => {
         players[1].Hand.forEach((e) => {
             if (e.value === "A") {
-                console.log("found ace");
                 e.weight = 1;
             }
         });
+        getPoints();
     })
 );
 
@@ -203,6 +208,7 @@ const compPlay = () => {
         let card = deck.pop();
         players[0].Hand.push(card);
         getPoints();
+
         if (17 <= compScore && compScore <= 21) {
             endGame();
         } else if (21 < compScore) {
@@ -234,6 +240,10 @@ const endGame = () => {
     document.getElementById("game").innerText = gameData.game;
     console.log("end");
     if (userWin === true && compWin === true) {
+        gameData.push++;
+        document.getElementById("push").innerText = gameData.push++;
+        console.log("push");
+    } else if (userScore === compScore) {
         gameData.push++;
         document.getElementById("push").innerText = gameData.push++;
         console.log("push");
