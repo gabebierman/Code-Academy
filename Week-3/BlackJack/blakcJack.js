@@ -1,5 +1,3 @@
-// test button (tuns all functions listed on page)
-
 // declare deck of cards
 const suit = ["diamonds", "hearts", "spades", "clubs"];
 const values = [
@@ -17,8 +15,9 @@ const values = [
     "Q",
     "K",
 ];
-
 let deck = [];
+let userCard;
+let compCard;
 let userScore;
 let compScore;
 const gameData = {
@@ -27,6 +26,9 @@ const gameData = {
     lose: 0,
     win: 0,
 };
+let discard = [];
+
+//start game
 
 document.getElementById("start").addEventListener(
     "click",
@@ -38,6 +40,8 @@ document.getElementById("start").addEventListener(
         document.getElementById("stay").disabled = false;
     })
 );
+
+//create deck
 
 const initDeck = () => {
     deck = [];
@@ -55,6 +59,7 @@ const initDeck = () => {
     }
     return deck;
 };
+
 // shuffle deck of cards
 
 const shuffleDeck = () => {
@@ -71,12 +76,15 @@ const shuffleDeck = () => {
 //deal the hand
 
 const dealCards = () => {
-    userScore = deck.pop().weight;
-    compScore = deck.pop().weight;
-    userScore = userScore + deck.pop().weight;
-    compScore = compScore + deck.pop().weight;
-    console.log("user score " + userScore);
-    console.log("comp score " + compScore);
+    let card1 = deck.pop();
+    let card2 = deck.pop();
+    let card3 = deck.pop();
+    let card4 = deck.pop();
+    userCard = [card1, card3];
+    compCard = [card2, card4];
+    console.log("user score " + userCard);
+    console.log("comp score " + compCard);
+
     if (userScore === 21 || compScore === 21) {
         endGame();
     }
@@ -151,3 +159,14 @@ const endGame = () => {
         document.getElementById("userWin").innerText = gameData.win;
     }
 };
+
+//create discard deck
+
+const deckDiscard = () => {
+    while (discard.length < deck.length) {}
+    console.log(discard);
+};
+
+//draw cards
+
+//put card values on table
