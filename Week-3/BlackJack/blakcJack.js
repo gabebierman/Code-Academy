@@ -16,10 +16,8 @@ const values = [
     "K",
 ];
 let deck = [];
-let userCard = [];
-let compCard = [];
-let userScore;
-let compScore;
+let userHand = [];
+let numPlayers = 1;
 const gameData = {
     game: 1,
     tied: 0,
@@ -27,6 +25,7 @@ const gameData = {
     win: 0,
 };
 let discard = [];
+let players = [];
 
 //start game
 
@@ -35,13 +34,14 @@ document.getElementById("start").addEventListener(
     (startGame = () => {
         initDeck();
         shuffleDeck();
+        newPlayers(numPlayers);
         dealCards();
         document.getElementById("hit").disabled = false;
         document.getElementById("stay").disabled = false;
-        compScore = 0;
-        compCard = [];
-        userScore = 0;
-        userCard = [];
+        // compScore = 0;
+        // compCard = [];
+        // userScore = 0;
+        // userCard = [];
     })
 );
 
@@ -77,28 +77,41 @@ const shuffleDeck = () => {
     return deck;
 };
 
+const newPlayers = (numPlayers) => {
+    let hand = [];
+    let player = { Name: "Computer", ID: 0, Points: 0, Hand: hand };
+    players.push(player);
+    for (let i = 1; i <= numPlayers; i++) {
+        let hand = [];
+        let player = { Name: "Player " + i, ID: i, Points: 0, Hand: hand };
+        players.push(player);
+    }
+};
 //deal the hand
 
 const dealCards = () => {
     for (let i = 0; i < 2; i++) {
-        let card = deck.pop();
-        compCard.push(card);
-        card = deck.pop();
-        userCard.push(card);
+        for (let j = 0; j < players; j++) {}
+        checkScore();
     }
+};
 
-    console.log(userCard);
-    console.log(compCard);
+const checkScore = () => {
+    // if (userScore === 21 || compScore === 21) {
+    //     endGame();
+    // }
+    // updateScore();
+};
 
-    userScore = userCard[0].weight + userCard[1].weight;
-    compScore = compCard[0].weight + compCard[1].weight;
-
-    console.log("user score " + userScore);
-    console.log("comp score " + compScore);
-
-    if (userScore === 21 || compScore === 21) {
-        endGame();
+const getScore = (player) => {
+    let points = 0;
+    for (let i = 0; i < players[player].Hand.length; i++) {
+        points += players[player].Hand[i].Weight;
     }
+    players[player].Points = points;
+    console.log(points);
+
+    return points;
 };
 
 //computer
@@ -111,7 +124,11 @@ const compPlay = () => {
         console.log("comp bust");
     }
     while (compScore < 17) {
-        compScore = compScore + deck.pop().weight;
+        let card = deck.pop();
+        console.log(card);
+        compCard.push(card);
+        console.log(compCard);
+        compScore = compScore + compCard[2].weight;
         console.log(compScore);
         if (17 <= compScore && compScore <= 21) {
             endGame();
@@ -173,10 +190,10 @@ const endGame = () => {
 
 //create discard deck
 
-const deckDiscard = () => {
-    while (discard.length < deck.length) {}
-    console.log(discard);
-};
+// const deckDiscard = () => {
+//     while (discard.length < deck.length) {}
+//     console.log(discard);
+// };
 
 //draw cards
 
