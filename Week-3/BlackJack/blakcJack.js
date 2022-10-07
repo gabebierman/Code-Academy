@@ -110,7 +110,9 @@ const getPoints = (player) => {
     checkScore();
 };
 
-const checkScore = () => {};
+const checkScore = () => {
+    this is just for the hit button commit
+};
 
 //computer
 const compPlay = () => {};
