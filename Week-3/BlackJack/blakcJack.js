@@ -1,12 +1,4 @@
 // test button (tuns all functions listed on page)
-document.getElementById("test").addEventListener(
-    "click",
-    (runAll = () => {
-        initDeck();
-        shuffleDeck();
-        dealCards();
-    })
-);
 
 // declare deck of cards
 const suit = ["diamonds", "hearts", "spades", "clubs"];
@@ -29,8 +21,25 @@ const values = [
 let deck = [];
 let userScore;
 let compScore;
+const gameData = {
+    game: 1,
+    tied: 0,
+    lose: 0,
+    win: 0,
+};
 
-function initDeck() {
+document.getElementById("start").addEventListener(
+    "click",
+    (startGame = () => {
+        initDeck();
+        shuffleDeck();
+        dealCards();
+        document.getElementById("hit").disabled = false;
+        document.getElementById("stay").disabled = false;
+    })
+);
+
+const initDeck = () => {
     deck = [];
     for (let i = 0; i < suit.length; i++) {
         for (let j = 0; j < values.length; j++) {
@@ -45,10 +54,10 @@ function initDeck() {
         }
     }
     return deck;
-}
+};
 // shuffle deck of cards
 
-function shuffleDeck() {
+const shuffleDeck = () => {
     for (let i = 0; i < 1000; i++) {
         let card1 = Math.floor(Math.random() * deck.length);
         let card2 = Math.floor(Math.random() * deck.length);
@@ -57,53 +66,43 @@ function shuffleDeck() {
         deck[card2] = random;
     }
     return deck;
-}
+};
 
 //deal the hand
 
-function dealCards() {
+const dealCards = () => {
     userScore = deck.pop().weight;
     compScore = deck.pop().weight;
     userScore = userScore + deck.pop().weight;
     compScore = compScore + deck.pop().weight;
     console.log("user score " + userScore);
     console.log("comp score " + compScore);
-}
+    if (userScore === 21 || compScore === 21) {
+        endGame();
+    }
+};
 
 //computer
-function compPlay() {
-    console.log(compScore);
-    if (21 < compScore) {
-        console.log("comp bust");
-    } else if (17 <= compScore && compScore <= 21) {
+const compPlay = () => {
+    if (17 <= compScore && compScore <= 21) {
         console.log("comp stay");
-    } else {
-        let hit = deck.pop();
-        console.log("comp hit");
-        compScore = compScore + hit.weight;
+        endGame();
+    } else if (21 < compScore) {
+        endGame();
+        console.log("comp bust");
+    }
+    while (compScore < 17) {
+        compScore = compScore + deck.pop().weight;
         console.log(compScore);
         if (17 <= compScore && compScore <= 21) {
+            endGame();
             console.log("comp stay");
         } else if (21 < compScore) {
+            endGame();
             console.log("comp bust");
-        } else {
-            console.log("comp hit");
-            compScore = compScore + deck.pop().weight;
-            console.log(compScore);
-            if (17 <= compScore && compScore <= 21) {
-                console.log("comp stay");
-            } else if (21 < compScore) {
-                console.log("comp bust");
-            } else {
-                console.log("comp hit");
-                compScore = compScore + deck.pop().weight;
-                console.log(compScore);
-            }
         }
     }
-}
-
-//user player
+};
 
 //hit
 document.getElementById("hit").addEventListener(
@@ -111,20 +110,44 @@ document.getElementById("hit").addEventListener(
     (dealSingle = () => {
         userScore = userScore + deck.pop().weight;
         console.log("user hit , new score " + userScore);
+        if (21 < userScore) {
+            endGame();
+            console.log("user bust");
+        }
+        if (userScore === 21 || compScore === 21) {
+            endGame();
+        }
     })
 );
 
 //stay
 document.getElementById("stay").addEventListener("click", compPlay);
 
-//start the game
-
-//render cards and add to hand
-
-//hit button
-
-//stay button
-
-//determine outcome
-
-//add cards to discard
+//end the game
+const endGame = () => {
+    document.getElementById("hit").disabled = true;
+    document.getElementById("stay").disabled = true;
+    gameData.game++;
+    document.getElementById("game").innerText = gameData.game;
+    if (userScore === compScore) {
+        gameData.tied++;
+        document.getElementById("push").innerText = gameData.tied;
+        console.log("draw");
+    } else if (21 < userScore) {
+        gameData.lose++;
+        document.getElementById("compWin").innerText = gameData.lose;
+        console.log("user bust comp win");
+    } else if (21 < compScore) {
+        gameData.win++;
+        document.getElementById("userWin").innerText = gameData.win;
+        console.log("comp bust user win");
+    } else if (userScore - compScore < 0) {
+        console.log("comp win");
+        gameData.lose++;
+        document.getElementById("compWin").innerText = gameData.lose;
+    } else {
+        console.log("user win");
+        gameData.win++;
+        document.getElementById("userWin").innerText = gameData.win;
+    }
+};
