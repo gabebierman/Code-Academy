@@ -76,15 +76,18 @@ const shuffleDeck = () => {
 //deal the hand
 
 const dealCards = () => {
-    let card1 = deck.pop();
-    let card2 = deck.pop();
-    let card3 = deck.pop();
-    let card4 = deck.pop();
-    userCard = [card1, card3];
-    compCard = [card2, card4];
-    console.log("user score " + userCard);
-    console.log("comp score " + compCard);
-
+    let user1 = [deck.pop()];
+    let comp1 = [deck.pop()];
+    userCard = [...user1, deck.pop()];
+    compCard = [...comp1, deck.pop()];
+    console.log(userCard);
+    console.log(compCard);
+    userScore = deck.pop().weight;
+    compScore = deck.pop().weight;
+    userScore = userScore + deck.pop().weight;
+    compScore = compScore + deck.pop().weight;
+    console.log("user score " + userScore);
+    console.log("comp score " + compScore);
     if (userScore === 21 || compScore === 21) {
         endGame();
     }
