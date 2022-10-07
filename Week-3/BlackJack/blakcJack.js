@@ -80,7 +80,7 @@ const newPlayers = (numPlayers) => {
     players.push(player);
     for (let i = 1; i <= numPlayers; i++) {
         let hand = [];
-        let player = { Name: "Player " + i, ID: i, Points: 0, Hand: hand };
+        let player = { Name: "Player", ID: i, Points: 0, Hand: hand };
         players.push(player);
     }
 };
@@ -107,47 +107,22 @@ const getPoints = (player) => {
         console.log(players[player], points);
         players[player].Points = points;
     }
+    checkScore();
 };
 
+const checkScore = () => {};
+
 //computer
-const compPlay = () => {
-    if (17 <= compScore && compScore <= 21) {
-        console.log("comp stay");
-        endGame();
-    } else if (21 < compScore) {
-        endGame();
-        console.log("comp bust");
-    }
-    while (compScore < 17) {
-        let card = deck.pop();
-        console.log(card);
-        compCard.push(card);
-        console.log(compCard);
-        compScore = compScore + compCard[2].weight;
-        console.log(compScore);
-        if (17 <= compScore && compScore <= 21) {
-            endGame();
-            console.log("comp stay");
-        } else if (21 < compScore) {
-            endGame();
-            console.log("comp bust");
-        }
-    }
-};
+const compPlay = () => {};
 
 //hit
 document.getElementById("hit").addEventListener(
     "click",
     (dealSingle = () => {
-        userScore = userScore + deck.pop().weight;
-        console.log("user hit , new score " + userScore);
-        if (21 < userScore) {
-            endGame();
-            console.log("user bust");
-        }
-        if (userScore === 21 || compScore === 21) {
-            endGame();
-        }
+        let card = deck.pop();
+        players[1].Hand.push(card);
+        console.log(players[1].Hand);
+        getPoints();
     })
 );
 
@@ -190,12 +165,8 @@ const endGame = () => {
 //     console.log(discard);
 // };
 
-//draw cards
-
-// //draw cards
-// while (drawnCards.length < numCards) {
+// while (deck.length < numCards) {
 //     let card = this.getCard();
-//     //check if card has been drawn
 //     for (let drawnCard of drawnCards) {
 //         let matchSuit = card.suit === drawnCard.suit;
 //         let matchValue = card.value === drawnCard.value;
@@ -207,7 +178,6 @@ const endGame = () => {
 //     drawnCards.push(card);
 // }
 
-// //discard drawn cards from deck
 // for (let drawnCard of drawnCards) {
 //     for (let i = 0; i < deck.length; i++) {
 //         let card = deck[i];
