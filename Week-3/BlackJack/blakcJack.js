@@ -19,9 +19,9 @@ let deck = [];
 let numPlayers = 1;
 const gameData = {
     game: 1,
-    tied: 0,
-    lose: 0,
-    win: 0,
+    push: 0,
+    compWin: 0,
+    userWin: 0,
 };
 let discard = [];
 let players = [];
@@ -29,6 +29,8 @@ let player = 0;
 let points;
 let compScore = 0;
 let userScore = 0;
+let userWin = false;
+let compWin = false;
 
 //start game
 
@@ -37,8 +39,11 @@ document.getElementById("start").addEventListener(
     (startGame = () => {
         initDeck();
         shuffleDeck();
+        players = [];
         newPlayers(numPlayers);
         dealCards();
+        userWin = false;
+        compWin = false;
         document.getElementById("hit").disabled = false;
         document.getElementById("stay").disabled = false;
     })
@@ -76,6 +81,8 @@ const shuffleDeck = () => {
     return deck;
 };
 
+//player objects in array
+
 const newPlayers = (numPlayers) => {
     let hand = [];
     let player = { Name: "Computer", ID: 0, Points: 0, Hand: hand };
@@ -90,7 +97,6 @@ const newPlayers = (numPlayers) => {
 //deal the hand
 
 const dealCards = () => {
-    // debugger;
     for (let i = 0; i < 2; i++) {
         for (let j = 0; j < players.length; j++) {
             let card = deck.pop();
@@ -99,6 +105,8 @@ const dealCards = () => {
     }
     getPoints(player);
 };
+
+//get current point total based on weight
 
 const getPoints = (player) => {
     for (let i = 0; i < 2; i++) {
@@ -114,16 +122,29 @@ const getPoints = (player) => {
     check21();
 };
 
+//check if any score is 21
+
 const check21 = () => {
     compScore = players[0].Points;
     userScore = players[1].Points;
-    //if either score is 21
     if (compScore === 21 || userScore === 21) {
+        if (compScore === 21) {
+            compWin = true;
+        } else {
+            userWin = true;
+        }
         endGame();
-    }
-    //if if either score is over 21
-    else if (21 < compScore || 21 < userScore) {
+    } else if (21 < compScore || 21 < userScore) {
+        if (21 < compScore) {
+            userWin = true;
+        } else {
+            compWin = true;
+        }
         endGame();
+    } else if (compScore === userScore) {
+        endGame();
+        userWin = true;
+        compWin = true;
     } else {
         return;
     }
@@ -170,6 +191,19 @@ const endGame = () => {
     gameData.game++;
     document.getElementById("game").innerText = gameData.game;
     console.log("end");
+    if (userWin === true && compWin === true) {
+        gameData.push++;
+        document.getElementById("push").innerText = gameData.push++;
+        console.log("push");
+    } else if (userWin === true) {
+        gameData.userWin++;
+        document.getElementById("userWin").innerText = gameData.userWin;
+        console.log("user win");
+    } else {
+        gameData.compWin++;
+        document.getElementById("compWin").innerText = gameData.compWin;
+        console.log("comp win");
+    }
 };
 
 //create discard deck
