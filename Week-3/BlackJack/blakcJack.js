@@ -16,7 +16,6 @@ const values = [
     "K",
 ];
 let deck = [];
-let userHand = [];
 let numPlayers = 1;
 const gameData = {
     game: 1,
@@ -26,6 +25,8 @@ const gameData = {
 };
 let discard = [];
 let players = [];
+let player = 0;
+let points;
 
 //start game
 
@@ -38,10 +39,6 @@ document.getElementById("start").addEventListener(
         dealCards();
         document.getElementById("hit").disabled = false;
         document.getElementById("stay").disabled = false;
-        // compScore = 0;
-        // compCard = [];
-        // userScore = 0;
-        // userCard = [];
     })
 );
 
@@ -90,28 +87,26 @@ const newPlayers = (numPlayers) => {
 //deal the hand
 
 const dealCards = () => {
+    // debugger;
     for (let i = 0; i < 2; i++) {
-        for (let j = 0; j < players; j++) {}
-        checkScore();
+        for (let j = 0; j < players.length; j++) {
+            let card = deck.pop();
+            players[j].Hand.push(card);
+        }
     }
+    getPoints(player);
 };
 
-const checkScore = () => {
-    // if (userScore === 21 || compScore === 21) {
-    //     endGame();
-    // }
-    // updateScore();
-};
-
-const getScore = (player) => {
-    let points = 0;
-    for (let i = 0; i < players[player].Hand.length; i++) {
-        points += players[player].Hand[i].Weight;
+const getPoints = (player) => {
+    for (let i = 0; i < 2; i++) {
+        player = i;
+        points = 0;
+        for (let i = 0; i < players[player].Hand.length; i++) {
+            points = points + players[player].Hand[i].weight;
+        }
+        console.log(players[player], points);
+        players[player].Points = points;
     }
-    players[player].Points = points;
-    console.log(points);
-
-    return points;
 };
 
 //computer
