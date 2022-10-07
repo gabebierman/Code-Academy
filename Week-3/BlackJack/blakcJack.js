@@ -27,6 +27,8 @@ let discard = [];
 let players = [];
 let player = 0;
 let points;
+let compScore = 0;
+let userScore = 0;
 
 //start game
 
@@ -84,6 +86,7 @@ const newPlayers = (numPlayers) => {
         players.push(player);
     }
 };
+
 //deal the hand
 
 const dealCards = () => {
@@ -107,15 +110,44 @@ const getPoints = (player) => {
         console.log(players[player], points);
         players[player].Points = points;
     }
-    checkScore();
+
+    check21();
 };
 
-const checkScore = () => {
-    this is just for the hit button commit
+const check21 = () => {
+    compScore = players[0].Points;
+    userScore = players[1].Points;
+    //if either score is 21
+    if (compScore === 21 || userScore === 21) {
+        endGame();
+    }
+    //if if either score is over 21
+    else if (21 < compScore || 21 < userScore) {
+        endGame();
+    } else {
+        return;
+    }
+
+    //else the user score is higher than the computer
 };
 
 //computer
-const compPlay = () => {};
+
+const compPlay = () => {
+    if (17 <= compScore && compScore <= 21) {
+        endGame();
+    }
+    while (compScore < 17) {
+        let card = deck.pop();
+        players[0].Hand.push(card);
+        getPoints();
+        if (17 <= compScore && compScore <= 21) {
+            endGame();
+        } else if (21 < compScore) {
+            endGame();
+        }
+    }
+};
 
 //hit
 document.getElementById("hit").addEventListener(
@@ -137,27 +169,7 @@ const endGame = () => {
     document.getElementById("stay").disabled = true;
     gameData.game++;
     document.getElementById("game").innerText = gameData.game;
-    if (userScore === compScore) {
-        gameData.tied++;
-        document.getElementById("push").innerText = gameData.tied;
-        console.log("draw");
-    } else if (21 < userScore) {
-        gameData.lose++;
-        document.getElementById("compWin").innerText = gameData.lose;
-        console.log("user bust comp win");
-    } else if (21 < compScore) {
-        gameData.win++;
-        document.getElementById("userWin").innerText = gameData.win;
-        console.log("comp bust user win");
-    } else if (userScore - compScore < 0) {
-        console.log("comp win");
-        gameData.lose++;
-        document.getElementById("compWin").innerText = gameData.lose;
-    } else {
-        console.log("user win");
-        gameData.win++;
-        document.getElementById("userWin").innerText = gameData.win;
-    }
+    console.log("end");
 };
 
 //create discard deck
