@@ -16,8 +16,8 @@ const values = [
     "K",
 ];
 let deck = [];
-let userCard;
-let compCard;
+let userCard = [];
+let compCard = [];
 let userScore;
 let compScore;
 const gameData = {
@@ -38,6 +38,10 @@ document.getElementById("start").addEventListener(
         dealCards();
         document.getElementById("hit").disabled = false;
         document.getElementById("stay").disabled = false;
+        compScore = 0;
+        compCard = [];
+        userScore = 0;
+        userCard = [];
     })
 );
 
@@ -76,18 +80,22 @@ const shuffleDeck = () => {
 //deal the hand
 
 const dealCards = () => {
-    let user1 = [deck.pop()];
-    let comp1 = [deck.pop()];
-    userCard = [...user1, deck.pop()];
-    compCard = [...comp1, deck.pop()];
+    for (let i = 0; i < 2; i++) {
+        let card = deck.pop();
+        compCard.push(card);
+        card = deck.pop();
+        userCard.push(card);
+    }
+
     console.log(userCard);
     console.log(compCard);
-    userScore = deck.pop().weight;
-    compScore = deck.pop().weight;
-    userScore = userScore + deck.pop().weight;
-    compScore = compScore + deck.pop().weight;
+
+    userScore = userCard[0].weight + userCard[1].weight;
+    compScore = compCard[0].weight + compCard[1].weight;
+
     console.log("user score " + userScore);
     console.log("comp score " + compScore);
+
     if (userScore === 21 || compScore === 21) {
         endGame();
     }
@@ -171,5 +179,30 @@ const deckDiscard = () => {
 };
 
 //draw cards
+
+// //draw cards
+// while (drawnCards.length < numCards) {
+//     let card = this.getCard();
+//     //check if card has been drawn
+//     for (let drawnCard of drawnCards) {
+//         let matchSuit = card.suit === drawnCard.suit;
+//         let matchValue = card.value === drawnCard.value;
+//         if (matchSuit && matchValue) {
+//             card = this.getCard();
+//         }
+//     }
+//     console.log(card);
+//     drawnCards.push(card);
+// }
+
+// //discard drawn cards from deck
+// for (let drawnCard of drawnCards) {
+//     for (let i = 0; i < deck.length; i++) {
+//         let card = deck[i];
+//         let matchSuit = card.suit === drawnCard.suit;
+//         let matchValue = card.value === drawnCard.value;
+//         if (matchSuit && matchValue) {
+//             deck.splice(i, 1);
+//             discard.push(card);
 
 //put card values on table
