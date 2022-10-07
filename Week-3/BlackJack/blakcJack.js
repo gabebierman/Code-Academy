@@ -162,26 +162,35 @@ const check21 = () => {
 
 const updateScore = () => {
     compScore = players[0].Points;
-    aceCheck();
-    document.getElementById("userScore").innerText = `${userScore}`;
+    userScore = players[1].Points;
+    document.getElementById(
+        "userScore"
+    ).innerText = `${players[1].Hand[0].value}  ${players[1].Hand[1].value}`;
     document.getElementById("compScore").innerText = `${compScore}`;
 };
 
-const aceCheck = () => {
-    console.log("ace check");
-    players[1].Hand.forEach((e) => {
-        if (e.value === "A") {
-            console.log("acefound");
-            if (document.getElementById("1").checked === true) {
-                userScore = players[1].Points - 10;
-            } else {
-                userScore = players[1].Points;
+document.getElementById("11").addEventListener(
+    "click",
+    (ace = () => {
+        players[1].Hand.forEach((e) => {
+            if (e.value === "A") {
+                e.weight = 11;
             }
-        } else {
-            userScore = players[1].Points;
-        }
-    });
-};
+        });
+    })
+);
+
+document.getElementById("1").addEventListener(
+    "click",
+    (ace = () => {
+        players[1].Hand.forEach((e) => {
+            if (e.value === "A") {
+                console.log("found ace");
+                e.weight = 1;
+            }
+        });
+    })
+);
 
 //computer
 
