@@ -16,6 +16,7 @@ const values = [
     "K",
 ];
 let deck = [];
+let currentCard;
 let numPlayers = 1;
 const gameData = {
     game: 1,
@@ -29,15 +30,15 @@ let player = 0;
 let points;
 let compScore = 0;
 let userScore = 0;
-let userWin = false;
-let compWin = false;
+let userWin;
+let compWin;
+let discardCount = 0;
 
 //start game
 
 document.getElementById("start").addEventListener(
     "click",
     (startGame = () => {
-        initDeck();
         shuffleDeck();
         players = [];
         newPlayers(numPlayers);
@@ -50,7 +51,6 @@ document.getElementById("start").addEventListener(
 );
 
 //create deck
-
 const initDeck = () => {
     deck = [];
     for (let i = 0; i < suit.length; i++) {
@@ -67,6 +67,13 @@ const initDeck = () => {
     }
     return deck;
 };
+
+window.addEventListener(
+    "load",
+    (load = () => {
+        initDeck(), newPlayers(numPlayers), shuffleDeck();
+    })
+);
 
 // shuffle deck of cards
 
@@ -99,10 +106,11 @@ const newPlayers = (numPlayers) => {
 const dealCards = () => {
     for (let i = 0; i < 2; i++) {
         for (let j = 0; j < players.length; j++) {
-            let card = deck.pop();
-            players[j].Hand.push(card);
+            currentCard = deck.pop();
+            players[j].Hand.push(currentCard);
         }
     }
+    deckDiscard();
     getPoints(player);
 };
 
@@ -118,15 +126,15 @@ const getPoints = (player) => {
         console.log(players[player], points);
         players[player].Points = points;
     }
-
+    // console.log("points counted");
     check21();
+    // console.log("checking for 21");
 };
 
 //check if any score is 21
 
 const check21 = () => {
-    compScore = players[0].Points;
-    userScore = players[1].Points;
+    updateScore();
     if (compScore === 21 || userScore === 21) {
         if (compScore === 21) {
             compWin = true;
@@ -141,15 +149,38 @@ const check21 = () => {
             compWin = true;
         }
         endGame();
-    } else if (compScore === userScore) {
+    } else if (compScore === 21 && userScore === 21) {
         endGame();
         userWin = true;
         compWin = true;
-    } else {
-        return;
     }
+    console.log("21 check complete");
+    updateScore();
+};
 
-    //else the user score is higher than the computer
+//update score span
+
+const updateScore = () => {
+    compScore = players[0].Points;
+    aceCheck();
+    document.getElementById("userScore").innerText = `${userScore}`;
+    document.getElementById("compScore").innerText = `${compScore}`;
+};
+
+const aceCheck = () => {
+    console.log("ace check");
+    players[1].Hand.forEach((e) => {
+        if (e.value === "A") {
+            console.log("acefound");
+            if (document.getElementById("1").checked === true) {
+                userScore = players[1].Points - 10;
+            } else {
+                userScore = players[1].Points;
+            }
+        } else {
+            userScore = players[1].Points;
+        }
+    });
 };
 
 //computer
@@ -159,6 +190,7 @@ const compPlay = () => {
         endGame();
     }
     while (compScore < 17) {
+        deckDiscard();
         let card = deck.pop();
         players[0].Hand.push(card);
         getPoints();
@@ -174,6 +206,7 @@ const compPlay = () => {
 document.getElementById("hit").addEventListener(
     "click",
     (dealSingle = () => {
+        deckDiscard();
         let card = deck.pop();
         players[1].Hand.push(card);
         console.log(players[1].Hand);
@@ -206,33 +239,25 @@ const endGame = () => {
     }
 };
 
-//create discard deck
+//create discard deck / shuffle button
 
-// const deckDiscard = () => {
-//     while (discard.length < deck.length) {}
-//     console.log(discard);
-// };
+const deckDiscard = () => {
+    if (deck.length < 5) {
+        console.log("not enough cards");
+        document.getElementById("start").disabled = true;
+        document.getElementById("stay").disabled = true;
+        document.getElementById("hit").disabled = true;
+    }
+};
 
-// while (deck.length < numCards) {
-//     let card = this.getCard();
-//     for (let drawnCard of drawnCards) {
-//         let matchSuit = card.suit === drawnCard.suit;
-//         let matchValue = card.value === drawnCard.value;
-//         if (matchSuit && matchValue) {
-//             card = this.getCard();
-//         }
-//     }
-//     console.log(card);
-//     drawnCards.push(card);
-// }
-
-// for (let drawnCard of drawnCards) {
-//     for (let i = 0; i < deck.length; i++) {
-//         let card = deck[i];
-//         let matchSuit = card.suit === drawnCard.suit;
-//         let matchValue = card.value === drawnCard.value;
-//         if (matchSuit && matchValue) {
-//             deck.splice(i, 1);
-//             discard.push(card);
+document.getElementById("shuffle").addEventListener(
+    "click",
+    (shuffle = () => {
+        initDeck(), shuffleDeck();
+        document.getElementById("start").disabled = false;
+        document.getElementById("stay").disabled = false;
+        document.getElementById("hit").disabled = false;
+    })
+);
 
 //put card values on table
