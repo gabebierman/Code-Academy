@@ -52,6 +52,13 @@ deal.addEventListener(
         userCardArea.innerHTML = "";
         gameStatus();
         gameText.innerText = "Game in Progress";
+        if (deck.length < 5) {
+            gameText.innerText =
+                "Not enough cards, you need to shuffle the deck";
+            document.getElementById("deal").disabled = true;
+            document.getElementById("stay").disabled = true;
+            document.getElementById("hit").disabled = true;
+        }
     })
 );
 
@@ -151,12 +158,6 @@ const gameStatus = () => {
             gameText.innerText = `Computer won with ${compScore}`;
         }
     }
-    if (deck.length < 5) {
-        gameText.innerText = "Not enough cards, you need to shuffle the deck";
-        document.getElementById("deal").disabled = true;
-        document.getElementById("stay").disabled = true;
-        document.getElementById("hit").disabled = true;
-    }
 };
 
 function shuffleDeck() {
@@ -183,7 +184,7 @@ function cardGetValue(card) {
         return 2;
     } else if (card.value === "Three") {
         return 3;
-    } else if (card.value === "FOur") {
+    } else if (card.value === "Four") {
         return 4;
     } else if (card.value === "Five") {
         return 5;
@@ -252,11 +253,20 @@ function gameEndCheck() {
         gameData.win++;
         document.getElementById("userWin").innerText = gameData.win;
     } else if (userScore === 21 && compScore === 21) {
+        gameOver === true;
         gameData.push++;
         document.getElementById("compWin").innerText = gameData.push;
         gameText.innerText = `Draw`;
     } else if (gameOver) {
-        if (userScore > compScore) {
+        if (userScore === 21) {
+            playerWon = true;
+            gameOver = true;
+            gameData.win++;
+        } else if (compScore === 21) {
+            playerWon = false;
+            gameOver = true;
+            gameData.lose++;
+        } else if (userScore > compScore) {
             playerWon = true;
             gameData.win++;
             document.getElementById("userWin").innerText = gameData.win;
