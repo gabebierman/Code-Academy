@@ -21,15 +21,16 @@ button {
 .pageContainer {
     display: flex;
     flex-direction: column;
+    max-height: min-content;
 
 }
 
 .header {
     display: flex;
-    flex-basis: 100%;
-    justify-content: space-around;
+    flex-basis: 25%;
+    justify-content: space-evenly;
     align-items: center;
-    min-height: 50px;
+    min-height: 40px;
 }
 
 .cardArea {
@@ -42,7 +43,7 @@ button {
 
 .card {
     flex-basis: auto;
-    max-height: 250px;
+    max-height: 225px;
 }
 
 .padding10px {
