@@ -8,48 +8,49 @@
     </head>
 
     <body>
-        <button id="start">Deal!</button>
-        <button id="shuffle">Reshuffle the Deck</button>
+        <button id="newGame">New game</button>
+        <button id="hit">Hit!</button>
+        <button id="stay">Stay</button>
+        <p id="text-area"></p>
+        <button id="shuffle">Shuffle</button>
+
+        <!-- <button id="start">Deal!</button>
+        <button id="shuffle">Reshuffle the Deck</button> -->
 
         <!-- game board -->
         <div>
             <!-- header -->
             <div>
                 <!-- counter: games played -->
-                <div id="">Games Played : <span id="game"></span></div>
+                <!-- <div id="">Games Played : <span id="game"></span></div> -->
                 <!-- counter: user wins -->
-                <div id="">User Wins : <span id="userWin"></span></div>
+                <!-- <div id="">User Wins : <span id="userWin"></span></div> -->
                 <!-- counter: house wins -->
-                <div id="">Computer Wins : <span id="compWin"></span></div>
+                <!-- <div id="">Computer Wins : <span id="compWin"></span></div> -->
                 <!-- counter: no wins -->
-                <div id="">Push : <span id="push"></span></div>
+                <!-- <div id="">Push : <span id="push"></span></div> -->
                 <!-- button: begin game -->
                 <!-- button: re-initialize games -->
             </div>
             <!-- computer cards -->
             <div>
-                <div>Computer Hand :<span id="compHand"></span></div>
-                <div>Computer Score : <span id="compScore"></span></div>
-                <!-- text indicating computer decision -->
-                <!-- blank card -->
-                <!-- computer showing card -->
+                <div id="compCards"></div>
             </div>
             <!-- game status win / loss : loss type / push -->
             <div></div>
             <!-- User cards -->
             <div>
-                <!-- face up card -->
-                <!-- face up card -->
-                <div>User Hand :<span id="userHand"></span></div>
-                <div>User Score : <span id="userScore"></span></div>
+                <div id="userCards"></div>
+                <!-- <div>User Hand :<span id="userHand"></span></div>
+                <div>User Score : <span id="userScore"></span></div> -->
                 <!-- running card total : total or in case of ACE 2 total options -->
-                <button id="11">Ace 11</button>
-                <button id="1">Ace 1</button>
+                <!-- <button id="11">Ace 11</button>
+                <button id="1">Ace 1</button> -->
             </div>
             <!-- option buttons -->
             <div>
-                <button id="hit">hit</button>
-                <button id="stay">stay</button>
+                <!-- <button id="hit">hit</button>
+                <button id="stay">stay</button> -->
             </div>
         </div>
         <script src="./blakcJack.js"></script>
