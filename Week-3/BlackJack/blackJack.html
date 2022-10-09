@@ -9,9 +9,9 @@
     </head>
     <body>
         <!-- game board -->
-        <div class="border pageContainer">
+        <div class="pageContainer">
             <!-- header -->
-            <div class="border header">
+            <div class="header">
                 <button id="deal">Deal</button>
                 <button id="shuffle">Shuffle</button>
                 <!-- counter: games played -->
@@ -22,21 +22,28 @@
                 <div id="">Computer Wins : <span id="compWin"></span></div>
                 <!-- counter: no wins -->
                 <div id="">Push : <span id="push"></span></div>
-                <!-- button: begin game -->
                 <!-- button: re-initialize games -->
             </div>
+            <br />
             <!-- computer cards -->
-            <div id="compCards" class="border cardArea"></div>
+            <div id="compCards" class="cardArea"></div>
             <!-- game status win / loss : loss type / push -->
             <div class="header" id="">
                 <p id="gameStatus"></p>
             </div>
             <!-- User cards -->
-            <div id="userCards" class="border cardArea"></div>
+            <div id="userCards" class="cardArea"></div>
+            <br />
             <!-- option buttons -->
-            <div class="header">
-                <button id="hit">Hit</button>
-                <button id="stay">Stay</button>
+            <div
+                class="header"
+                style="flex-basis: 10%; justify-content: center"
+            >
+                <button id="hit" class="padding10px">Hit</button>
+                <br />
+                <div id="userScore" class="padding10px"></div>
+                <br />
+                <button id="stay" class="padding10px">Stay</button>
             </div>
         </div>
         <script src="./blakcJack.js"></script>

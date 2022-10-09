@@ -50,6 +50,7 @@ deal.addEventListener(
         compCardArea.innerHTML = "";
         userCardArea.innerHTML = "";
         gameStatus();
+        gameText.innerText = "";
     })
 );
 
@@ -82,16 +83,10 @@ const initDeck = () => {
             deck.push(card);
         }
     }
-    // deckDiscard();
     return deck;
 };
 
 const gameStatus = () => {
-    if (gamesStarted === false) {
-        textArea.innerText = "Welcome to BlackJack";
-        return;
-    }
-
     let dealerCardString = "";
     for (let i = 0; i < compCards.length; i++) {
         dealerCardString += getCardString(compCards[i]) + "\n";
@@ -111,7 +106,6 @@ const gameStatus = () => {
         cardDiv.classList.add("card");
         let card = document.createElement("img");
         card.src = `./cards/${thisCard}.png`;
-        // card.classList.add("card");
         compCardArea.appendChild(cardDiv);
         cardDiv.appendChild(card);
     }
@@ -123,17 +117,17 @@ const gameStatus = () => {
         cardDiv.classList.add("card");
         let card = document.createElement("img");
         card.src = `./cards/${thisCard}.png`;
-        // card.classList.add("card");
         userCardArea.appendChild(cardDiv);
         cardDiv.appendChild(card);
     }
+    document.getElementById("userScore").innerText = `${userScore}`;
     if (gameOver) {
         gameData.game++;
         document.getElementById("game").innerText = gameData.game;
         if (playerWon) {
-            gameText.innerText += "You Win!";
+            gameText.innerText = `You won with ${userScore}`;
         } else {
-            gameText.innerText += "comp Wins!";
+            gameText.innerText = `Computer won with ${compScore}`;
         }
     }
 };
@@ -218,6 +212,10 @@ function gameEndCheck() {
         gameOver = true;
         gameData.win++;
         document.getElementById("userWin").innerText = gameData.win;
+    } else if (userScore === 21 && compScore === 21) {
+        gameData.push++;
+        document.getElementById("compWin").innerText = gameData.push;
+        gameText.innerText = `Draw`;
     } else if (gameOver) {
         if (userScore > compScore) {
             playerWon = true;
