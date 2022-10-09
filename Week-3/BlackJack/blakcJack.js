@@ -14,8 +14,8 @@ let value = [
     "Three",
     "Two",
 ];
-let textArea = document.getElementById("text-area");
-let newGameButton = document.getElementById("newGame");
+let gameText = document.getElementById("gameStatus");
+let deal = document.getElementById("deal");
 let hitButton = document.getElementById("hit");
 let stayButton = document.getElementById("stay");
 let shuffle = document.getElementById("shuffle");
@@ -30,25 +30,25 @@ let userCards = [];
 let compScore = 0;
 let userScore = 0;
 let deck = [];
+const gameData = {
+    game: 0,
+    push: 0,
+    lose: 0,
+    win: 0,
+};
+let card;
 
-hitButton.style.display = "none";
-stayButton.style.display = "none";
-
-newGameButton.addEventListener(
+deal.addEventListener(
     "click",
     (start = () => {
         gamesStarted = true;
         gameOver = false;
         playerWon = false;
-        deck = initDeck();
         shuffleDeck(deck);
         compCards = [getCard(), getCard()];
         userCards = [getCard(), getCard()];
         compCardArea.innerHTML = "";
         userCardArea.innerHTML = "";
-        newGameButton.style.display = "none";
-        hitButton.style.display = "inline";
-        stayButton.style.display = "inline";
         gameStatus();
     })
 );
@@ -82,6 +82,7 @@ const initDeck = () => {
             deck.push(card);
         }
     }
+    // deckDiscard();
     return deck;
 };
 
@@ -106,44 +107,38 @@ const gameStatus = () => {
     let compHand = dealerCardString.split("\n");
     for (let i = 0; i < compCards.length; i++) {
         let thisCard = compHand[i].replace(/[^a-z]/gi, "");
+        let cardDiv = document.createElement("div");
+        cardDiv.classList.add("card");
         let card = document.createElement("img");
-        compCardArea.appendChild(card);
         card.src = `./cards/${thisCard}.png`;
+        // card.classList.add("card");
+        compCardArea.appendChild(cardDiv);
+        cardDiv.appendChild(card);
     }
     userCardArea.innerHTML = "";
     let userHand = playerCardString.split("\n");
     for (let i = 0; i < userCards.length; i++) {
         let thisCard = userHand[i].replace(/[^a-z]/gi, "");
+        let cardDiv = document.createElement("div");
+        cardDiv.classList.add("card");
         let card = document.createElement("img");
-        userCardArea.appendChild(card);
         card.src = `./cards/${thisCard}.png`;
+        // card.classList.add("card");
+        userCardArea.appendChild(cardDiv);
+        cardDiv.appendChild(card);
     }
-
-    textArea.innerText =
-        "comp has: \n " +
-        dealerCardString +
-        "(score:" +
-        compScore +
-        ")\n\n" +
-        "Player has: \n " +
-        playerCardString +
-        "(score:" +
-        userScore +
-        ")\n\n";
-
     if (gameOver) {
+        gameData.game++;
+        document.getElementById("game").innerText = gameData.game;
         if (playerWon) {
-            textArea.innerText += "You Win!";
+            gameText.innerText += "You Win!";
         } else {
-            textArea.innerText += "comp Wins!";
+            gameText.innerText += "comp Wins!";
         }
-        newGameButton.style.display = "inline";
-        hitButton.style.display = "none";
-        stayButton.style.display = "none";
     }
 };
 
-function shuffleDeck(deck) {
+function shuffleDeck() {
     for (let i = 0; i < deck.length; i++) {
         let swapCard = Math.floor(Math.random() * deck.length);
         let temp = deck[swapCard];
@@ -213,18 +208,25 @@ function gameEndCheck() {
             updateScores();
         }
     }
-
     if (userScore > 21) {
         playerWon = false;
         gameOver = true;
+        gameData.lose++;
+        document.getElementById("compWin").innerText = gameData.lose;
     } else if (compScore > 21) {
         playerWon = true;
         gameOver = true;
+        gameData.win++;
+        document.getElementById("userWin").innerText = gameData.win;
     } else if (gameOver) {
         if (userScore > compScore) {
             playerWon = true;
+            gameData.win++;
+            document.getElementById("userWin").innerText = gameData.win;
         } else {
             playerWon = false;
+            gameData.lose++;
+            document.getElementById("compWin").innerText = gameData.lose;
         }
     }
 }
@@ -232,18 +234,26 @@ function gameEndCheck() {
 const deckDiscard = () => {
     if (deck.length < 5) {
         console.log("not enough cards");
-        // document.getElementById("start").disabled = true;
-        // document.getElementById("stay").disabled = true;
-        // document.getElementById("hit").disabled = true;
+        document.getElementById("deal").disabled = true;
+        document.getElementById("stay").disabled = true;
+        document.getElementById("hit").disabled = true;
     }
 };
 
 shuffle.addEventListener(
     "click",
-    (shuffle = () => {
-        initDeck(), shuffleDeck();
-        // document.getElementById("start").disabled = false;
-        // document.getElementById("stay").disabled = false;
-        // document.getElementById("hit").disabled = false;
+    (cardShuffle = () => {
+        initDeck();
+        shuffleDeck();
+        document.getElementById("deal").disabled = false;
+        document.getElementById("stay").disabled = false;
+        document.getElementById("hit").disabled = false;
+    })
+);
+
+window.addEventListener(
+    "load",
+    (newDeck = () => {
+        deck = initDeck();
     })
 );
