@@ -38,6 +38,7 @@ const gameData = {
 };
 let card;
 let compHand;
+let userHand;
 
 deal.addEventListener(
     "click",
@@ -220,17 +221,6 @@ function getScore(cardArray) {
 function updateScores() {
     compScore = getScore(compCards);
     userScore = getScore(userCards);
-    if (gameOver === true) {
-        for (let i = 0; i < compCards.length; i++) {
-            let thisCard = compHand[i].replace(/[^a-z]/gi, "");
-            let cardDiv = document.createElement("div");
-            cardDiv.classList.add("card");
-            let card = document.createElement("img");
-            card.src = `./cards/${thisCard}.png`;
-            compCardArea.appendChild(cardDiv);
-            cardDiv.appendChild(card);
-        }
-    }
 }
 
 function gameEndCheck() {
