@@ -38,22 +38,15 @@ html = urlopen(url, context=ctx).read()
 soup = BeautifulSoup(html, "html.parser")
 
 regex = r"[^0-9☊][\w\\s][^0-9]+"
-# replace = r"/(\r\n|\n|\r)/gm, """
-
-genre = []
-
-# genres = soup.get_text()
-
-
-# def is_the_only_string_within_a_tag(s):
-#     return (s == s.parent.string)
-
-
-# tags = soup.find_all(style=True)
-
-# genres = soup.find_all(string=is_the_only_string_within_a_tag)
 
 genres = soup.find_all(string=re.compile(regex))
 
+# print(genres)
 
-print(genres)
+print(genres[666])
+
+with open(r'D:\VS Code Files\Code Academy\Week-5\FrontEndPrj-start\list.txt', 'w') as fp:
+    for item in genres:
+        # write each item on a new line
+        fp.write("%s\n" % item)
+    print('Done')
